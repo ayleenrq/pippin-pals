@@ -24,7 +24,7 @@ import Prod4 from '../Branding - Pippin & Pals_img/Rectangle 29-3.png';
 import Prod5 from '../Branding - Pippin & Pals_img/Rectangle 29-4.png';
 import Prod6 from '../Branding - Pippin & Pals_img/Rectangle 29-5.png';
 
-import StampGraphic from '../Branding - Pippin & Pals_illustration/organic-cotton-stamp-alt.svg';
+import StampGraphic from '../Branding - Pippin & Pals_illustration/organic-cotton-stamp.png';
 
 const products = [
   { id: 1, name: "Apricot Pals Knit Sweater", price: "$38.00", img: Prod1 },

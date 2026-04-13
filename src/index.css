@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/new-bread');
 
 * {
   margin: 0;
@@ -16,10 +17,15 @@ body {
 .app {
   min-height: 100vh;
   overflow: hidden;
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #FEFFFC;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
 }
 
 h1, h2, h3, h4, h5, h6, .brand-font {
-  font-family: 'Fredoka', cursive;
+  font-family: 'New Bread', cursive;
 }
 
 .text-primary { color: #E67C4F; }
@@ -43,7 +49,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
   gap: 10px;
   padding: 16px 36px;
   border-radius: 80px;
-  font-family: 'Fredoka', cursive;
+  font-family: 'New Bread', cursive;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -103,7 +109,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 
 .nav-link {
   color: #E67C4F;
-  font-family: 'Fredoka', cursive;
+  font-family: 'New Bread', cursive;
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;
@@ -152,6 +158,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
   width: 100%;
   height: 100vh;
   min-height: 600px;
+  max-height: 900px;
   background: #FEFFFC;
   overflow: hidden;
   display: flex;
@@ -164,7 +171,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 55%;
+  height: 46%;
   object-fit: cover;
   object-position: center top;
   z-index: 1;
@@ -217,20 +224,22 @@ h1, h2, h3, h4, h5, h6, .brand-font {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-35%);
-  height: 92%;
-  max-height: none;
-  width: auto;
-  z-index: 5;
+  transform: translateX(-50%);
+  height: 86%;
+  max-height: 800px;
+  max-width: 85%;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 15;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
 }
 
 /* Organic cotton stamp — bottom right */
 .floating-stamp {
   position: absolute;
-  right: 6%;
-  bottom: 10%;
-  width: 140px;
+  right: 8%;
+  bottom: 38%;
+  width: 170px;
   animation: spin 15s linear infinite;
   z-index: 6;
   opacity: 0.9;
@@ -370,7 +379,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 .feature-item h3 {
   color: #E67C4F;
   font-size: 30px;
-  font-family: 'Fredoka', cursive;
+  font-family: 'New Bread', cursive;
 }
 
 /* Products Section */
@@ -392,7 +401,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
   padding: 16px 40px;
   border-radius: 80px;
   font-size: 20px;
-  font-family: 'Fredoka', cursive;
+  font-family: 'New Bread', cursive;
   cursor: pointer;
   transition: all 0.3s;
 }
