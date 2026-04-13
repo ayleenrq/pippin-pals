@@ -9,6 +9,7 @@ import HeartIcon from '../Branding - Pippin & Pals_icon/heart_regular.svg';
 import CartAddIcon from '../Branding - Pippin & Pals_icon/add_regular.svg';
 
 import HeroBg from '../Branding - Pippin & Pals_img/scenic-view-green-field-dotted-with-curious-sheep-bright-blue-sky-minimalist 1.png';
+import StoryBg from '../Branding - Pippin & Pals_img/scenic-view-green-field-dotted-with-curious-sheep-bright-blue-sky-minimalist 1.png';
 import GirlsHugging from '../Branding - Pippin & Pals_img/two-little-girls-hugging-smiling-white-background 1.png';
 import StickerLogo from '../Branding - Pippin & Pals_img/Sticker logo pippin 1.png';
 import ClothingBag from '../Branding - Pippin & Pals_img/clothing bag pippin 1.png';
@@ -25,6 +26,7 @@ import Prod5 from '../Branding - Pippin & Pals_img/Rectangle 29-4.png';
 import Prod6 from '../Branding - Pippin & Pals_img/Rectangle 29-5.png';
 
 import StampGraphic from '../Branding - Pippin & Pals_illustration/organic-cotton-stamp.png';
+import StampGraphicStory from '../Branding - Pippin & Pals_illustration/organic-cotton-stamp-story.png';
 
 const products = [
   { id: 1, name: "Apricot Pals Knit Sweater", price: "$38.00", img: Prod1 },
@@ -95,14 +97,22 @@ function App() {
         <img src={StampGraphic} alt="100% Organic Cotton" className="floating-stamp" />
       </section>
 
-      {/* Story Section */}
       <section className="section story-section">
-        <div className="story-badge">
-          <h2>Our Story</h2>
-        </div>
-        <img src={StickerLogo} alt="Logo Sticker" className="story-img" />
-        <div className="story-card">
-          <p>We are the softest embrace for your little ones. At Pippin & Pals, we craft 'huggable' essentials from the purest organic cotton. Inspired by playful wonder, our mission is simple: to protect the joy of childhood, one gentle stitch at a time.</p>
+        <img src={StoryBg} alt="Green Field" className="story-bg" />
+        <div className="story-overlay"></div>
+        
+        <div className="story-content-wrapper">
+          <div className="story-badge">
+            <h2>Our Story</h2>
+          </div>
+          <img src={StickerLogo} alt="Logo Sticker" className="story-img" />
+          <div className="story-card">
+            <div className="story-card-hole"></div>
+            <p>We are the softest embrace for your little ones. At Pippin & Pals, 
+              we craft 'huggable' essentials from the purest organic cotton. Inspired by playful wonder, 
+              our mission is simple: to protect the joy of childhood, one gentle stitch at a time.</p>
+          </div>
+          <img src={StampGraphicStory} alt="100% Organic Cotton" className="story-stamp" />
         </div>
       </section>
 
