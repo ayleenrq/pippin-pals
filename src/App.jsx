@@ -13,7 +13,7 @@ import StoryBg from '../Branding - Pippin & Pals_img/scenic-view-green-field-dot
 import GirlsHugging from '../Branding - Pippin & Pals_img/two-little-girls-hugging-smiling-white-background 1.png';
 import StickerLogo from '../Branding - Pippin & Pals_img/Sticker logo pippin 1.png';
 import ClothingBag from '../Branding - Pippin & Pals_img/clothing bag pippin 1.png';
-import TestimonialImg from '../Branding - Pippin & Pals_img/Rectangle 27.png';
+import TestimonialImg from '../Branding - Pippin & Pals_img/Rectangle 30.png';
 import RabbitSheep from '../Branding - Pippin & Pals_img/rabbit & sheep 1.png';
 import RabbitSheep2 from '../Branding - Pippin & Pals_img/rabbit & sheep 2.png';
 
@@ -27,6 +27,20 @@ import Prod6 from '../Branding - Pippin & Pals_img/Rectangle 29-5.png';
 
 import StampGraphic from '../Branding - Pippin & Pals_illustration/organic-cotton-stamp.png';
 import StampGraphicStory from '../Branding - Pippin & Pals_illustration/organic-cotton-stamp-story.png';
+import Vector1 from '../Branding - Pippin & Pals_illustration/vector-1.png';
+import Vector2 from '../Branding - Pippin & Pals_illustration/vector-2.png';
+import Vector3 from '../Branding - Pippin & Pals_illustration/vector-3.png';
+import Vector4 from '../Branding - Pippin & Pals_illustration/vector-4.png';
+import Group25 from '../Branding - Pippin & Pals_icon/Group 25.svg';
+import Group26 from '../Branding - Pippin & Pals_icon/Group 26.svg';
+import Group27 from '../Branding - Pippin & Pals_icon/Group 27.svg';
+import FooterVectorLeft from '../Branding - Pippin & Pals_illustration/Vector.svg';
+import FooterVectorRight from '../Branding - Pippin & Pals_illustration/Vector (1).svg';
+import Social1 from '../Branding - Pippin & Pals_img/sosial-media/social_x_regular.png';
+import Social2 from '../Branding - Pippin & Pals_img/sosial-media/social_x_regular (1).png';
+import Social3 from '../Branding - Pippin & Pals_img/sosial-media/social_x_regular (2).png';
+import Social4 from '../Branding - Pippin & Pals_img/sosial-media/social_x_regular (3).png';
+import Social5 from '../Branding - Pippin & Pals_img/sosial-media/social_x_regular (4).png';
 
 const products = [
   { id: 1, name: "Apricot Pals Knit Sweater", price: "$38.00", img: Prod1 },
@@ -118,42 +132,73 @@ function App() {
 
       {/* Features Section */}
       <section className="section features-section">
-        <div className="section-tag">
-          <h2>The Secret to a Perfect Hug</h2>
+        <div className="features-header">
+          <img src={Vector1} alt="" className="features-hook-img" />
+          <div className="features-header-content">
+            <div className="header-mascots left">
+              <img src={Vector2} alt="" />
+              <img src={Vector3} alt="" />
+              <img src={Vector4} alt="" />
+            </div>
+            <div className="section-tag">
+              <h2>The Secret to a Perfect Hug</h2>
+            </div>
+            <div className="header-mascots right">
+              <img src={Vector4} alt="" />
+              <img src={Vector2} alt="" />
+              <img src={Vector3} alt="" />
+            </div>
+          </div>
         </div>
         
         <div className="features-grid">
           <div className="feature-item">
-            <div className="feature-icon-wrapper">
-              <img src={StampGraphic} alt="Organic" style={{width: 140, filter: 'hue-rotate(90deg)'}} />
+            <div className="rabbit-card">
+              <div className="rabbit-ears"></div>
+              <div className="rabbit-head">
+                <h3>Purely<br/>Organic</h3>
+              </div>
             </div>
-            <h3>Purely Organic</h3>
           </div>
           <div className="feature-item">
-            <div className="feature-icon-wrapper">
-              <img src={RabbitSheep} alt="Soft" style={{width: 120}} />
+            <div className="rabbit-card">
+              <div className="rabbit-ears"></div>
+              <div className="rabbit-head">
+                <h3>Cloud<br/>Soft Feel</h3>
+              </div>
             </div>
-            <h3>Cloud Soft Feel</h3>
           </div>
           <div className="feature-item">
-            <div className="feature-icon-wrapper">
-               <img src={RabbitSheep2} alt="Breathable" style={{width: 100}} />
+            <div className="rabbit-card">
+              <div className="rabbit-ears"></div>
+              <div className="rabbit-head">
+                <h3>Extra<br/>Breathable</h3>
+              </div>
             </div>
-            <h3>Extra Breathable</h3>
           </div>
           <div className="feature-item">
-            <div className="feature-icon-wrapper">
-               <div style={{width: 80, height: 80, background: '#D6E499', borderRadius: '50%'}}></div>
+            <div className="rabbit-card">
+              <div className="rabbit-ears"></div>
+              <div className="rabbit-head">
+                <h3>Hypo<br/>allergenic</h3>
+              </div>
             </div>
-            <h3>Hypoallergenic</h3>
           </div>
+        </div>
+
+        {/* Scalloped Divider */}
+        <div className="features-divider">
+          {Array(8).fill(0).map((_, i) => <div key={i} className="divider-circle"></div>)}
         </div>
       </section>
 
       {/* Products Section */}
       <section className="section products-section">
-        <div className="section-tag">
-          <h2 style={{fontSize: 36}}>Meet Your New Favorite Pals</h2>
+        <div className="features-header">
+          <img src={Vector1} alt="" className="features-hook-img" />
+          <div className="section-tag">
+            <h2>Meet Your New Favorite Pals</h2>
+          </div>
         </div>
         
         <div className="filter-tabs">
@@ -162,7 +207,7 @@ function App() {
           <div className="filter-tab">Bottom</div>
           <div className="filter-tab">Dress</div>
           <div className="filter-tab">Sweater</div>
-          <div className="filter-tab">Sleepwear</div>
+          <div className="filter-tab">Accessories</div>
         </div>
 
         <div className="products-grid">
@@ -170,14 +215,16 @@ function App() {
             <div className="product-card" key={product.id}>
               <div className="product-img-wrapper">
                 <img src={product.img} alt={product.name} />
+                <button className="add-to-cart-btn">
+                  <span>+</span>
+                </button>
               </div>
-              <button className="cart-btn">
-                <img src={CartAddIcon} alt="Add to cart" />
-              </button>
               <div className="product-info">
-                <div className="product-price">
-                  {product.price}
-                  <img src={HeartIcon} style={{width: 32, cursor: 'pointer'}} alt="Like" />
+                <div className="product-main-row">
+                  <span className="product-price">{product.price}</span>
+                  <div className="product-wishlist">
+                    <img src={HeartIcon} alt="Like" />
+                  </div>
                 </div>
                 <div className="product-name">{product.name}</div>
               </div>
@@ -188,55 +235,82 @@ function App() {
 
       {/* Values Section */}
       <section className="section values-wrapper">
-        <div className="values-decor-top">
-           {Array(5).fill(0).map((_, i) => <div key={i} className="values-circle"></div>)}
+        <div className="values-scallop-top">
+           {Array(8).fill(0).map((_, i) => <div key={i} className="scallop-circle"></div>)}
         </div>
         
-        <div className="values-container">
-          <div style={{display: 'flex', flexDirection: 'column', gap: 30}}>
-             <div className="value-card">
-               <h3>Purely Organic</h3>
-               <p>100% premium cotton, gentle on skin and the planet.</p>
-             </div>
-             <div className="value-card">
-               <h3>Huggable Comfort</h3>
-               <p>Crafted to feel like a warm, comforting embrace.</p>
-             </div>
+        <div className="values-content">
+          <div className="value-card v-organic">
+            <h3>Purely Organic</h3>
+            <p>100% premium cotton, gentle on skin and the planet.</p>
           </div>
-          <div style={{position: 'relative'}}>
-             <div className="value-card" style={{marginTop: 50}}>
-               <h3>Whimsical Designs</h3>
-               <p>Playful, mascot-inspired styles made for every adventure.</p>
-             </div>
-             <img src={ClothingBag} className="value-img" alt="Bags" />
+          
+          <div className="value-card v-comfort">
+            <h3>Huggable Comfort</h3>
+            <p>Crafted to feel like a warm, comforting embrace.</p>
+          </div>
+
+          <div className="value-card v-design">
+            <h3>Whimsical Designs</h3>
+            <p>Playful, mascot-inspired styles made for every adventure.</p>
+          </div>
+
+          <div className="values-main-image">
+            <img src={ClothingBag} alt="Pippin & Pals Bags" />
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="section testimonials-section">
-        <div className="section-tag" style={{background: '#FFF1A1'}}>
-          <h2 style={{color: '#E67C4F'}}>Loved by Little Pals & Their Moms</h2>
+        <div className="testimonials-mascot-bar">
+          <div className="mascot-track">
+            {[Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27].map((g, i) => (
+              <img key={i} src={g} alt="" className="mascot-bar-icon" />
+            ))}
+          </div>
+        </div>
+
+        <div className="features-header">
+          <img src={Vector1} alt="" className="features-hook-img" />
+          <div className="section-tag" style={{background: '#FFF1A1'}}>
+            <h2 style={{color: '#E67C4F'}}>Loved by Little Pals & Their Moms</h2>
+          </div>
         </div>
         
         <div className="testimonial-container">
-          <img src={TestimonialImg} alt="Happy Mom and Child" className="testimonial-img" />
-          <div className="testimonial-content">
-            <div className="testimonial-quote">
-              "I was looking for something gentle for my daughter’s sensitive skin, and Pippin & Pals exceeded my expectations. It truly is a hug you can wear. She refuses to take her organic dress off!"
+          <div className="testimonial-image-box">
+            <img src={TestimonialImg} alt="Happy Mom and Child" className="testimonial-img" />
+          </div>
+          <div className="testimonial-content-box">
+            <div className="testimonial-quote-bubble">
+              <p>"I was looking for something gentle for my daughter’s sensitive skin, and Pippin & Pals exceeded my expectations. It truly is a hug you can wear. She refuses to take her organic dress off!"</p>
             </div>
-            <div className="testimonial-author">
-              <h4>Sarah M.</h4>
+            <div className="testimonial-author-box">
+              <h4>Sarah M</h4>
               <p>Mom of Lily</p>
             </div>
           </div>
+        </div>
+
+        <div className="testimonial-dots">
+          <div className="dot"></div>
+          <div className="dot active"></div>
+          <div className="dot"></div>
+        </div>
+
+        <div className="testimonials-scallop-bottom">
+           {Array(8).fill(0).map((_, i) => <div key={i} className="testimonial-scallop-circle"></div>)}
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="section faq-section">
-        <div className="section-tag">
-          <h2>Curious Minds Ask</h2>
+        <div className="features-header">
+          <img src={Vector1} alt="" className="features-hook-img" />
+          <div className="section-tag">
+            <h2>Curious Minds Ask</h2>
+          </div>
         </div>
         
         <div className="faq-container">
@@ -248,9 +322,13 @@ function App() {
             >
               <div className="faq-header">
                 <h3>{faq.q}</h3>
-                <div className="faq-icon">{activeFaq === index ? '-' : '+'}</div>
+                <div className="faq-icon">
+                  <span className="chevron"></span>
+                </div>
               </div>
-              <div className="faq-answer">{faq.a}</div>
+              <div className="faq-answer">
+                <p>{faq.a}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -258,21 +336,43 @@ function App() {
 
       {/* CTA Section */}
       <section className="section cta-section">
-        <div className="cta-box">
-          <div className="cta-inner">
+        <div className="cta-oval-wrapper">
+          <div className="cta-oval-inner">
              <h2>Ready to Wear the Softest Hug?</h2>
              <p>Give your little ones the comfort they deserve with our 100% organic essentials. Made for magic, naps, and everything in between.</p>
-             <button className="btn btn-primary" style={{fontSize: 24, padding: '20px 50px'}}>Shop the Collection</button>
+             <button className="cta-button">
+               Shop the Collection <span>&rarr;</span>
+             </button>
           </div>
           
-          <img src={RabbitSheep} className="cta-image-left" alt="Decor" />
-          <img src={RabbitSheep2} className="cta-image-right" alt="Decor" />
+          <img src={RabbitSheep} className="cta-mascot mascot-left" alt="Rabbit mascot" />
+          <img src={RabbitSheep2} className="cta-mascot mascot-right" alt="Sheep mascot" />
         </div>
       </section>
 
       {/* Footer */}
-      <footer>
-        <p>© 2026 Pippin & Pals. All rights reserved.</p>
+      <footer className="footer">
+        <div className="footer-scallop-top">
+           {Array(8).fill(0).map((_, i) => <div key={i} className="footer-scallop-circle"></div>)}
+        </div>
+
+        <img src={FooterVectorRight} className="footer-decor mascot-left" alt="" />
+        <img src={FooterVectorLeft} className="footer-decor mascot-right" alt="" />
+
+        <div className="footer-main">
+          <div className="footer-logo">Pippin & Pals</div>
+          <div className="footer-socials">
+            <img src={Social1} className="footer-social-icon" alt="Social" />
+            <img src={Social2} className="footer-social-icon" alt="Social" />
+            <img src={Social3} className="footer-social-icon" alt="Social" />
+            <img src={Social4} className="footer-social-icon" alt="Social" />
+            <img src={Social5} className="footer-social-icon" alt="Social" />
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>© 2026 Pippin & Pals. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   );
