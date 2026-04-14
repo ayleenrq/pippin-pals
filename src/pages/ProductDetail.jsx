@@ -59,8 +59,8 @@ const ProductDetail = () => {
         {/* Right Side: Product Info */}
         <div className="detail-info-box" style={{ flex: '1', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           
-          <div className="features-header" style={{ marginBottom: '20px', alignItems: 'flex-start' }}>
-            <img src={Vector1} alt="" className="features-hook-img" style={{ marginLeft: '20px' }} />
+          <div className="features-header" style={{ marginBottom: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '-5px' }} />
             <div className="section-tag" style={{ background: '#FFF1A1', padding: '10px 30px' }}>
               <h2 style={{ fontSize: '32px' }}>{product.name}</h2>
             </div>

@@ -328,8 +328,8 @@ h6,
   object-fit: cover;
   object-position: center;
   z-index: 1;
-  transform: scale(1.3);
-  transform-origin: bottom center;
+  transform: scale(1.1); /* Reduced scale slightly */
+  transform-origin: center center; /* Adjusted focus */
 }
 
 .story-overlay {
@@ -353,7 +353,9 @@ h6,
 }
 
 .story-img {
-  height: 440px;
+  height: 580px;
+  width: auto; /* Ensure aspect ratio is preserved */
+  object-fit: contain; /* Prevent distortion */
   position: relative;
   z-index: 12;
   margin-right: -40px;
@@ -1276,7 +1278,7 @@ h6,
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 18px 20px;
+    padding: 18px 12px;
   }
 
   .nav-links {
@@ -1318,6 +1320,7 @@ h6,
     height: 65%;
     max-height: 340px;
     transform: translateX(-30%);
+    object-fit: contain;
   }
 
   .floating-stamp {
@@ -1359,26 +1362,49 @@ h6,
     left: auto;
     top: auto;
     width: 240px;
+    height: auto; /* Preserve aspect ratio */
+    object-fit: contain;
     margin-right: 0;
     margin-bottom: -30px;
     z-index: 12;
+    transform: none; /* Reset desktop transform */
   }
 
   .story-card {
-    padding: 40px 24px 30px;
+    padding: 60px 20px 30px; /* Reduced further from 80px */
     border-radius: 20px;
     z-index: 10;
+    transform: none;
+    width: 90%; /* Slightly narrower to show more background */
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .story-card p {
-    font-size: 16px;
+    font-size: 15px; /* Slightly smaller text */
+    line-height: 1.4;
   }
+
+  .story-card-hole {
+    width: 32px;
+    height: 32px;
+    top: 20px;
+  }
+
+
 
   .story-badge {
     left: 50%;
-    top: -20px;
+    top: -25px;
     transform: translateX(-50%) rotate(-4deg);
-    padding: 8px 24px;
+    padding: 10px 30px;
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .story-badge h2 {
+    font-size: 24px;
+    margin: 0;
   }
 
   .story-stamp {
@@ -1455,5 +1481,37 @@ h6,
   .cta-image-left,
   .cta-image-right {
     display: none;
+  }
+
+  /* Product Detail Responsive */
+  .product-detail-section {
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .detail-container {
+    flex-direction: column !important;
+    gap: 40px !important;
+    padding: 0 20px !important;
+  }
+
+  .detail-image-box {
+    padding: 20px !important;
+  }
+
+  .detail-image-box img {
+    max-width: 280px !important;
+  }
+
+  .detail-info-box {
+    text-align: center;
+  }
+
+  .product-price {
+    font-size: 32px !important;
+  }
+
+  .product-description {
+    font-size: 16px !important;
   }
 }
