@@ -1265,6 +1265,18 @@ h6,
 
   .testimonial-container {
     flex-direction: column;
+    max-width: 100%;
+    margin: 40px auto;
+    gap: 20px;
+  }
+
+  .testimonial-image-box,
+  .testimonial-content-box {
+    width: 100%;
+  }
+
+  .testimonial-image-box {
+    aspect-ratio: 4/3;
   }
 
   .story-card {
@@ -1446,6 +1458,32 @@ h6,
     font-size: 18px;
   }
 
+  .testimonial-container {
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .testimonial-quote-bubble {
+    padding: 24px;
+  }
+
+  .testimonial-quote-bubble p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .testimonial-author-box {
+    padding: 16px 24px;
+  }
+
+  .testimonial-author-box h4 {
+    font-size: 20px;
+  }
+
+  .testimonial-dots {
+    margin-top: 10px;
+  }
+
   .testimonial-img {
     width: 100%;
     min-width: 0;
@@ -1464,27 +1502,93 @@ h6,
     font-size: 22px;
   }
 
-  .cta-box {
-    padding: 28px;
-    border-radius: 36px;
+  .cta-oval-wrapper {
+    aspect-ratio: auto;
+    border-radius: 40px;
+    padding: 12px;
+    margin-top: 40px;
   }
 
-  .cta-inner {
-    padding: 32px 24px;
-    border-radius: 28px;
+  .cta-oval-inner {
+    padding: 40px 20px;
+    border-radius: 32px;
   }
 
-  .cta-box h2 {
-    font-size: 34px;
+  .cta-oval-inner h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
   }
 
-  .cta-box p {
-    font-size: 19px;
+  .cta-oval-inner p {
+    font-size: 16px;
+    margin-bottom: 24px;
+    line-height: 1.4;
   }
 
-  .cta-image-left,
-  .cta-image-right {
-    display: none;
+  .cta-mascot {
+    width: 120px;
+    opacity: 0.5;
+  }
+
+  .mascot-left {
+    left: -20px;
+    top: -40px;
+    transform: rotate(-10deg);
+  }
+
+  .mascot-right {
+    right: -20px;
+    bottom: -40px;
+    transform: rotate(10deg);
+  }
+
+  /* Values Section Responsive */
+  .values-wrapper {
+    min-height: auto;
+    padding: 100px 20px 0;
+  }
+
+  .values-content {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    gap: 24px;
+    z-index: 10;
+  }
+
+  .value-card {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .values-main-image {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 125%;
+    max-width: 500px;
+    z-index: 5;
+    order: 10; /* Put image at the bottom of the list */
+  }
+
+  .values-scallop-top {
+    top: -80px;
+  }
+
+  .scallop-circle {
+    width: 150px;
+    height: 150px;
   }
 
   /* Product Detail Responsive */
