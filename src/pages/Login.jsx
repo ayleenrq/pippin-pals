@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 // Importing assets
 import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
@@ -8,70 +9,89 @@ import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit & sheep 1.png
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [notice, setNotice] = useState('');
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const { login, isLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  // Already logged in? Redirect to profile
+  React.useEffect(() => {
+    if (isLoggedIn) navigate('/profile', { replace: true });
+  }, [isLoggedIn, navigate]);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log('Login placeholder:', { email, password });
-    setNotice('Account login will be connected after the Shopify and wishlist flow is finished.');
+    setError('');
+    setIsLoading(true);
+    try {
+      await login(email, password);
+      navigate('/profile');
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div className="section" style={{ paddingTop: '150px', paddingBottom: '100px', backgroundColor: '#FEFFFC', minHeight: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      
-      <div style={{ maxWidth: '450px', width: '100%', backgroundColor: '#F8FCE1', borderRadius: '40px', padding: '50px 40px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', position: 'relative' }}>
-        
-        {/* Decor */}
-        <img src={RabbitSheep} alt="Mascot" style={{ position: 'absolute', top: '-80px', left: '50%', transform: 'translateX(-50%)', width: '150px' }} />
+    <div className="auth-page">
+      <div className="auth-card">
+        {/* Mascot decor */}
+        <img src={RabbitSheep} alt="Mascot" className="auth-mascot" />
 
-        <div className="features-header" style={{ marginBottom: '40px', marginTop: '20px' }}>
-          <img src={Vector1} alt="" className="features-hook-img" style={{ width: '25px', marginBottom: '-5px' }} />
-          <div className="section-tag" style={{ background: '#FFF1A1', padding: '8px 24px' }}>
-            <h2 style={{ fontSize: '28px', margin: 0 }}>Welcome Back!</h2>
+        <div className="features-header auth-header">
+          <img src={Vector1} alt="" className="features-hook-img" style={{ width: '22px', marginBottom: '-4px' }} />
+          <div className="section-tag" style={{ background: '#FFF1A1', padding: '8px 28px' }}>
+            <h2 style={{ fontSize: '26px', margin: 0 }}>Welcome Back!</h2>
           </div>
         </div>
 
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          {notice && (
-            <p style={{ color: '#E67C4F', background: '#FFF1A1', borderRadius: '12px', padding: '12px', lineHeight: 1.4 }}>
-              {notice}
-            </p>
+        <form onSubmit={handleLogin} className="auth-form">
+          {error && (
+            <div className="auth-error">
+              <span>🐰</span> {error}
+            </div>
           )}
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ fontFamily: "'New Bread', cursive", fontSize: '18px', color: '#E67C4F' }}>Email Address</label>
-            <input 
-              type="email" 
+
+          <div className="auth-field">
+            <label className="auth-label">Email Address</label>
+            <input
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              style={{ padding: '16px 20px', borderRadius: '16px', border: '2px solid #D6E499', outline: 'none', fontSize: '16px', fontFamily: "'Quicksand', sans-serif" }}
+              className="auth-input"
               placeholder="pals@example.com"
+              autoComplete="email"
             />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ fontFamily: "'New Bread', cursive", fontSize: '18px', color: '#E67C4F' }}>Password</label>
-            <input 
-              type="password" 
+          <div className="auth-field">
+            <label className="auth-label">Password</label>
+            <input
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              style={{ padding: '16px 20px', borderRadius: '16px', border: '2px solid #D6E499', outline: 'none', fontSize: '16px', fontFamily: "'Quicksand', sans-serif" }}
+              className="auth-input"
               placeholder="••••••••"
+              autoComplete="current-password"
             />
           </div>
 
-          <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '10px' }}>
-            Sign In
+          <button
+            type="submit"
+            className="btn btn-primary auth-submit-btn"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Signing in...' : 'Sign In 🌿'}
           </button>
-
         </form>
 
-        <p style={{ textAlign: 'center', marginTop: '24px', color: '#6D5649', fontSize: '16px' }}>
-          New to our family? <Link to="/register" style={{ color: '#E67C4F', fontWeight: 'bold' }}>Create an account</Link>
+        <p className="auth-footer-text">
+          New to our family?{' '}
+          <Link to="/register" className="auth-link">Create an account</Link>
         </p>
-
       </div>
     </div>
   );

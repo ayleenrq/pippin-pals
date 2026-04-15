@@ -43,8 +43,28 @@ export async function storefrontApiRequest(query, variables = {}) {
 }
 
 const normalizeProduct = (product) => {
-  const variant = product.variants?.edges?.[0]?.node;
-  const price = product.priceRange?.minVariantPrice || variant?.price;
+  const firstVariant = product.variants?.edges?.[0]?.node;
+  const price = product.priceRange?.minVariantPrice || firstVariant?.price;
+
+  const images = (product.images?.edges || []).map(({ node }) => ({
+    url: node.url,
+    altText: node.altText || '',
+  }));
+
+  const variants = (product.variants?.edges || []).map(({ node }) => ({
+    id: node.id,
+    title: node.title,
+    availableForSale: node.availableForSale,
+    price: node.price ? formatMoney(node.price.amount, node.price.currencyCode) : '',
+    priceAmount: node.price?.amount,
+    selectedOptions: node.selectedOptions || [],
+    image: node.image ? { url: node.image.url, altText: node.image.altText || '' } : null,
+  }));
+
+  const options = (product.options || []).map((opt) => ({
+    name: opt.name,
+    values: opt.values,
+  }));
 
   return {
     id: product.id,
@@ -53,9 +73,12 @@ const normalizeProduct = (product) => {
     routeId: product.handle,
     name: product.title,
     price: price ? formatMoney(price.amount, price.currencyCode) : '',
-    img: product.images?.edges?.[0]?.node?.url || '',
+    img: images[0]?.url || '',
+    images,
+    variants,
+    options,
     description: product.description || '',
-    variantId: variant?.id,
+    variantId: firstVariant?.id,
     availableForSale: product.availableForSale ?? true,
     source: 'shopify',
   };
@@ -118,6 +141,7 @@ export const STOREFRONT_PRODUCT_BY_HANDLE_QUERY = `
       title
       description
       handle
+      availableForSale
       priceRange {
         minVariantPrice {
           amount
@@ -132,26 +156,30 @@ export const STOREFRONT_PRODUCT_BY_HANDLE_QUERY = `
           }
         }
       }
-      variants(first: 20) {
+      options {
+        name
+        values
+      }
+      variants(first: 50) {
         edges {
           node {
             id
             title
+            availableForSale
             price {
               amount
               currencyCode
             }
-            availableForSale
             selectedOptions {
               name
               value
             }
+            image {
+              url
+              altText
+            }
           }
         }
-      }
-      options {
-        name
-        values
       }
     }
   }

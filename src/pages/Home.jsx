@@ -4,6 +4,7 @@ import { faqs } from '../data/mockData';
 import { useProducts } from '../hooks/useProducts';
 import { useWishlist } from '../hooks/useWishlist';
 import { createShopifyCheckout } from '../services/shopifyService';
+import { toast } from 'sonner';
 
 // Importing assets
 import HeartIcon from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
@@ -36,6 +37,13 @@ const Home = () => {
   const wishlist = useWishlist();
   const { searchQuery } = useSearchStore();
   const [activeFaq, setActiveFaq] = useState(0);
+  const [activeMockFilter, setActiveMockFilter] = useState('All');
+
+  const MOCK_CATEGORIES = ['All', 'Sweater', 'Dress', 'Socks', 'Accessories', 'Polo', 'Shorts'];
+  const MOCK_CATEGORY_MAP = {
+    'Sweater': [1], 'Dress': [2], 'Socks': [3],
+    'Accessories': [4], 'Polo': [5], 'Shorts': [6],
+  };
 
   useEffect(() => {
     if (isShopifyConfigured) {
@@ -43,21 +51,40 @@ const Home = () => {
     }
   }, [isShopifyConfigured]);
 
-  const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProducts = (() => {
+    let base = products;
+    if (!isShopifyConfigured && activeMockFilter !== 'All') {
+      const ids = MOCK_CATEGORY_MAP[activeMockFilter] || [];
+      base = products.filter(p => ids.includes(p.id));
+    }
+    return base.filter(product =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  })();
 
-  const handleWishlist = (event, productId) => {
+  const handleWishlist = (event, product) => {
     event.preventDefault();
+    event.stopPropagation();
+    const productId = product.routeId || product.id;
+    const wasInWishlist = wishlist.has(productId);
     wishlist.toggle(productId);
+    if (wasInWishlist) {
+      toast('Removed from wishlist 💔', { duration: 2000 });
+    } else {
+      toast.success('Added to wishlist! 💛', { duration: 2000 });
+    }
   };
 
   const handleAddToCart = async (event, product) => {
     event.preventDefault();
     event.stopPropagation();
 
-    if (!isShopifyConfigured || !product.variantId) {
-      alert('Shopify checkout is not configured yet.');
+    // Mock mode: no Shopify variant, show friendly message
+    if (!product.variantId) {
+      toast('Shopify belum tersambung. Ini produk demo! 🛍️', {
+        description: 'Hubungkan Shopify untuk proses checkout sungguhan.',
+        duration: 3000,
+      });
       return;
     }
 
@@ -65,7 +92,7 @@ const Home = () => {
       const cart = await createShopifyCheckout({ variantId: product.variantId });
       window.location.assign(cart.checkoutUrl);
     } catch (err) {
-      alert(err.message || 'Unable to create Shopify checkout.');
+      toast.error(err.message || 'Gagal membuat checkout.');
     }
   };
 
@@ -216,28 +243,43 @@ const Home = () => {
         </div>
         
         <div className="filter-tabs">
-          <div 
-            className={`filter-tab ${activeCollection === null ? 'active' : ''}`}
-            onClick={() => setActiveCollection(null)}
-          >
-            All
-          </div>
-          {['Top', 'Bottom', 'Dress', 'Sweater', 'Accessories'].map(tagName => {
-            const col = collections.find(c => 
-              c.title.toLowerCase() === tagName.toLowerCase() || 
-              (tagName === 'Bottom' && c.title.toLowerCase() === 'bottoms')
-            );
-            if (!col) return null;
-            return (
-              <div 
-                key={col.id} 
-                className={`filter-tab ${activeCollection === col.handle ? 'active' : ''}`}
-                onClick={() => setActiveCollection(col.handle)}
+          {/* When Shopify is connected, show real collections; otherwise show mock categories */}
+          {isShopifyConfigured ? (
+            <>
+              <div
+                className={`filter-tab ${activeCollection === null ? 'active' : ''}`}
+                onClick={() => setActiveCollection(null)}
               >
-                {tagName}
+                All
               </div>
-            );
-          })}
+              {['Top', 'Bottom', 'Dress', 'Sweater', 'Accessories'].map(tagName => {
+                const col = collections.find(c =>
+                  c.title.toLowerCase() === tagName.toLowerCase() ||
+                  (tagName === 'Bottom' && c.title.toLowerCase() === 'bottoms')
+                );
+                if (!col) return null;
+                return (
+                  <div
+                    key={col.id}
+                    className={`filter-tab ${activeCollection === col.handle ? 'active' : ''}`}
+                    onClick={() => setActiveCollection(col.handle)}
+                  >
+                    {tagName}
+                  </div>
+                );
+              })}
+            </>
+          ) : (
+            MOCK_CATEGORIES.map(cat => (
+              <div
+                key={cat}
+                className={`filter-tab ${activeMockFilter === cat ? 'active' : ''}`}
+                onClick={() => setActiveMockFilter(cat)}
+              >
+                {cat}
+              </div>
+            ))
+          )}
         </div>
 
         {notice && (
@@ -253,9 +295,13 @@ const Home = () => {
               <div className="product-info">
                 <div className="product-main-row">
                   <span className="product-price">{product.price}</span>
-                  <div className="product-wishlist" onClick={(e) => handleWishlist(e, product.routeId || product.id)}>
-                    <img src={HeartIcon} alt="Like" style={wishlist.has(product.routeId || product.id) ? { filter: 'invert(52%) sepia(87%) saturate(1514%) hue-rotate(328deg) brightness(98%) contrast(98%)' } : undefined} />
-                  </div>
+                  <button
+                    className={`heart-btn ${wishlist.has(product.routeId || product.id) ? 'heart-active' : ''}`}
+                    onClick={(e) => handleWishlist(e, product)}
+                    title={wishlist.has(product.routeId || product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
+                  >
+                    <img src={HeartIcon} alt="Wishlist" />
+                  </button>
                 </div>
                 <div className="product-name">{product.name}</div>
                 <button className="buy-now-btn" onClick={(e) => handleAddToCart(e, product)} style={{
@@ -387,7 +433,7 @@ const Home = () => {
           <div className="cta-oval-inner">
              <h2>Ready to Wear the Softest Hug?</h2>
              <p>Give your little ones the comfort they deserve with our 100% organic essentials. Made for magic, naps, and everything in between.</p>
-             <button className="cta-button">
+             <button className="cta-button" onClick={scrollToCollection}>
                Shop the Collection <span>&rarr;</span>
              </button>
           </div>

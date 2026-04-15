@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { useAuth } from '../context/AuthContext';
+import { useWishlist } from '../hooks/useWishlist';
 
 // Importing assets
 import PrimaryLogo from '../../Branding - Pippin & Pals_icon/Primary Logo.svg';
@@ -18,37 +20,47 @@ import { useSearchStore } from '../store/searchStore';
 
 const Layout = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const { searchQuery, setSearchQuery } = useSearchStore();
+  const { user, isLoggedIn, logout } = useAuth();
+  const { wishlistIds } = useWishlist();
   const lastScrollY = useRef(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Determine if scrolled enough to show background
       if (currentScrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
-
-      // Determine visibility based on direction
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        // Scrolling down - hide
         setIsVisible(false);
       } else {
-        // Scrolling up - show
         setIsVisible(true);
       }
-      
       lastScrollY.current = currentScrollY;
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsSearchOpen(false);
+  }, []);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+    setIsMobileMenuOpen(false);
+  };
+
+  const wishlistCount = wishlistIds.length;
 
   return (
     <div className="app">
@@ -59,18 +71,22 @@ const Layout = () => {
             <img src={PrimaryLogo} alt="Pippin & Pals" style={{ width: 140 }} />
           </Link>
         </div>
+
+        {/* Desktop Nav Links */}
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
           <HashLink smooth to="/#story" className="nav-link">Our Story</HashLink>
           <HashLink smooth to="/#collection" className="nav-link">The Collection</HashLink>
           <Link to="/" className="nav-link">Journal</Link>
         </div>
+
+        {/* Desktop Icons */}
         <div className="nav-icons">
           <div className="nav-search-container" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
             {isSearchOpen && (
-              <input 
-                type="text" 
-                placeholder="Search for pals..." 
+              <input
+                type="text"
+                placeholder="Search for pals..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 autoFocus
@@ -81,7 +97,7 @@ const Layout = () => {
                   marginRight: '10px',
                   width: '200px',
                   outline: 'none',
-                  fontFamily: "'Quicksand', sans-serif"
+                  fontFamily: "'Quicksand', sans-serif",
                 }}
               />
             )}
@@ -89,10 +105,75 @@ const Layout = () => {
               <img src={SearchIcon} alt="Search" />
             </div>
           </div>
-          <Link to="/profile" className="nav-icon"><img src={UserIcon} alt="Profile" /></Link>
-          <Link to="/favorites" className="nav-icon"><img src={HeartIcon} alt="Wishlist" /></Link>
+
+          <Link to="/profile" className="nav-icon nav-user-icon" title={isLoggedIn ? user?.name : 'Login'}>
+            {isLoggedIn ? (
+              <div className="nav-user-badge">
+                {user?.name?.charAt(0).toUpperCase()}
+              </div>
+            ) : (
+              <img src={UserIcon} alt="Profile" />
+            )}
+          </Link>
+
+          <Link to="/favorites" className="nav-icon nav-heart-icon" title="Wishlist">
+            <img src={HeartIcon} alt="Wishlist" />
+            {wishlistCount > 0 && (
+              <span className="nav-wishlist-count">{wishlistCount > 9 ? '9+' : wishlistCount}</span>
+            )}
+          </Link>
         </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu" onClick={() => setIsMobileMenuOpen(false)}>
+          <div className="mobile-menu-inner" onClick={(e) => e.stopPropagation()}>
+            <div className="mobile-menu-header">
+              <img src={PrimaryLogo} alt="Pippin & Pals" style={{ width: 120 }} />
+              <button className="mobile-menu-close" onClick={() => setIsMobileMenuOpen(false)}>✕</button>
+            </div>
+
+            {isLoggedIn && (
+              <div className="mobile-user-greeting">
+                <div className="mobile-user-avatar">{user?.name?.charAt(0).toUpperCase()}</div>
+                <span>Halo, <strong>{user?.name}</strong>! 🐰</span>
+              </div>
+            )}
+
+            <nav className="mobile-nav-links">
+              <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>🏠 Home</Link>
+              <HashLink smooth to="/#story" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>📖 Our Story</HashLink>
+              <HashLink smooth to="/#collection" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>👗 The Collection</HashLink>
+              <Link to="/favorites" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+                💛 Wishlist {wishlistCount > 0 && <span className="mobile-wishlist-badge">{wishlistCount}</span>}
+              </Link>
+              {isLoggedIn ? (
+                <>
+                  <Link to="/profile" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>👤 My Profile</Link>
+                  <button className="mobile-nav-link mobile-logout-btn" onClick={handleLogout}>🚪 Sign Out</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>🔑 Sign In</Link>
+                  <Link to="/register" className="mobile-nav-link mobile-register-link" onClick={() => setIsMobileMenuOpen(false)}>🌿 Join the Family</Link>
+                </>
+              )}
+            </nav>
+          </div>
+        </div>
+      )}
 
       {/* Main Content Area */}
       <main>
@@ -102,7 +183,7 @@ const Layout = () => {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-scallop-top">
-           {Array(8).fill(0).map((_, i) => <div key={i} className="footer-scallop-circle"></div>)}
+          {Array(8).fill(0).map((_, i) => <div key={i} className="footer-scallop-circle"></div>)}
         </div>
 
         <img src={FooterVectorRight} className="footer-decor mascot-left" alt="" />
