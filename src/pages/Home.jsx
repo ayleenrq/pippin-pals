@@ -14,6 +14,8 @@ import GirlsHugging from '../../Branding - Pippin & Pals_img/two-little-girls-hu
 import StickerLogo from '../../Branding - Pippin & Pals_img/Sticker logo pippin 1.png';
 import ClothingBag from '../../Branding - Pippin & Pals_img/clothing bag pippin 1.png';
 import TestimonialImg from '../../Branding - Pippin & Pals_img/Rectangle 30.png';
+import TestimonialImg2 from '../../Branding - Pippin & Pals_img/testimonial_2.png';
+import TestimonialImg3 from '../../Branding - Pippin & Pals_img/testimonial_3.png';
 import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit & sheep 1.png';
 import RabbitSheep2 from '../../Branding - Pippin & Pals_img/rabbit & sheep 2.png';
 import StampGraphic from '../../Branding - Pippin & Pals_illustration/organic-cotton-stamp.png';
@@ -29,6 +31,7 @@ import Group27 from '../../Branding - Pippin & Pals_icon/Group 27.svg';
 import { useSearchStore } from '../store/searchStore';
 import { getShopifyCollections } from '../services/shopifyService';
 import { useEffect } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Home = () => {
   const [collections, setCollections] = useState([]);
@@ -39,11 +42,78 @@ const Home = () => {
   const [activeFaq, setActiveFaq] = useState(0);
   const [activeMockFilter, setActiveMockFilter] = useState('All');
 
+  // ── Scroll-reveal refs ──
+  const [heroTitleRef, heroTitleVisible]       = useScrollAnimation({ threshold: 0.1 });
+  const [heroContentRef, heroContentVisible]   = useScrollAnimation({ threshold: 0.1 });
+  const [heroGirlsRef, heroGirlsVisible]       = useScrollAnimation({ threshold: 0.05 });
+  const [heroStampRef, heroStampVisible]       = useScrollAnimation({ threshold: 0.05 });
+
+  const [storyBadgeRef, storyBadgeVisible]     = useScrollAnimation({ threshold: 0.2 });
+  const [storyImgRef, storyImgVisible]         = useScrollAnimation({ threshold: 0.1 });
+  const [storyCardRef, storyCardVisible]       = useScrollAnimation({ threshold: 0.1 });
+  const [storyStampRef, storyStampVisible]     = useScrollAnimation({ threshold: 0.1 });
+
+  const [featHeaderRef, featHeaderVisible]     = useScrollAnimation({ threshold: 0.2 });
+  const [feat1Ref, feat1Visible]               = useScrollAnimation({ threshold: 0.15 });
+  const [feat2Ref, feat2Visible]               = useScrollAnimation({ threshold: 0.15 });
+  const [feat3Ref, feat3Visible]               = useScrollAnimation({ threshold: 0.15 });
+  const [feat4Ref, feat4Visible]               = useScrollAnimation({ threshold: 0.15 });
+
+  const [prodHeaderRef, prodHeaderVisible]     = useScrollAnimation({ threshold: 0.2 });
+  const [prodGridRef, prodGridVisible]         = useScrollAnimation({ threshold: 0.05 });
+
+  const [valHeaderRef, valHeaderVisible]       = useScrollAnimation({ threshold: 0.1 });
+  const [valCard1Ref, valCard1Visible]         = useScrollAnimation({ threshold: 0.15 });
+  const [valCard2Ref, valCard2Visible]         = useScrollAnimation({ threshold: 0.15 });
+  const [valCard3Ref, valCard3Visible]         = useScrollAnimation({ threshold: 0.15 });
+  const [valImgRef, valImgVisible]             = useScrollAnimation({ threshold: 0.1 });
+
+  const [testimHeaderRef, testimHeaderVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [testimBoxRef, testimBoxVisible]       = useScrollAnimation({ threshold: 0.1 });
+
+  const [faqHeaderRef, faqHeaderVisible]       = useScrollAnimation({ threshold: 0.2 });
+  const [faqContainerRef, faqContainerVisible] = useScrollAnimation({ threshold: 0.05 });
+
+  const [ctaRef, ctaVisible]                   = useScrollAnimation({ threshold: 0.15 });
+  const [ctaMascotLRef, ctaMascotLVisible]     = useScrollAnimation({ threshold: 0.1 });
+  const [ctaMascotRRef, ctaMascotRVisible]     = useScrollAnimation({ threshold: 0.1 });
+
+
   const MOCK_CATEGORIES = ['All', 'Sweater', 'Dress', 'Socks', 'Accessories', 'Polo', 'Shorts'];
   const MOCK_CATEGORY_MAP = {
     'Sweater': [1], 'Dress': [2], 'Socks': [3],
     'Accessories': [4], 'Polo': [5], 'Shorts': [6],
   };
+
+  const testimonials = [
+    {
+      img: TestimonialImg,
+      quote: "I was looking for something gentle for my daughter’s sensitive skin, and Pippin & Pals exceeded my expectations. It truly is a hug you can wear. She refuses to take her organic dress off!",
+      author: "Sarah M",
+      relation: "Mom of Lily"
+    },
+    {
+      img: TestimonialImg2,
+      quote: "The quality is simply unmatched! After countless washes, the fabric is still just as soft and vibrant as day one. We love the whimsical mascots, especially the little sheep detail.",
+      author: "Jessica R",
+      relation: "Mom of Oliver"
+    },
+    {
+      img: TestimonialImg3,
+      quote: "My toddler usually fusses when getting dressed, but these clothes are so soft he actually helps me put them on. It gives me peace of mind knowing it's 100% organic cotton against his skin.",
+      author: "Amanda C",
+      relation: "Mom of Leo"
+    }
+  ];
+
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTestimonial(prev => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     if (isShopifyConfigured) {
@@ -130,7 +200,10 @@ const Home = () => {
         {/* Inner wrapper: title + text content */}
         <div className="hero-inner">
           {/* Big headline spanning full width */}
-          <h1 className="hero-title">
+          <h1
+            ref={heroTitleRef}
+            className={`hero-title reveal-up${heroTitleVisible ? ' is-visible' : ''}`}
+          >
             <span className="text-primary">A </span>
             <span className="text-secondary">Hug </span>
             <span className="text-pink">You </span>
@@ -139,17 +212,35 @@ const Home = () => {
           </h1>
 
           {/* Left-aligned subtitle + CTA */}
-          <div className="hero-content">
+          <div
+            ref={heroContentRef}
+            className={`hero-content reveal-up reveal-delay-2${heroContentVisible ? ' is-visible' : ''}`}
+          >
             <p className="hero-subtitle">Soft, organic essentials designed for little dreamers and every big discovery.</p>
             <button className="btn btn-primary" onClick={scrollToCollection}>See What's New</button>
           </div>
         </div>
 
         {/* Girls image — centered/slightly right in the scene */}
-        <img src={GirlsHugging} alt="Little Girls Hugging" className="hero-girls" />
+        <img
+          ref={heroGirlsRef}
+          src={GirlsHugging}
+          alt="Little Girls Hugging"
+          className={`hero-girls reveal-hero-girls${heroGirlsVisible ? ' is-visible' : ''}`}
+        />
 
-        {/* Organic cotton stamp — bottom right */}
-        <img src={StampGraphic} alt="100% Organic Cotton" className="floating-stamp" />
+        {/* Organic cotton stamp — bottom right wrapper for reveal */}
+        <div
+          ref={heroStampRef}
+          className={`floating-stamp-wrapper reveal-fade reveal-delay-4${heroStampVisible ? ' is-visible' : ''}`}
+        >
+          {/* Inner image for looping spin */}
+          <img
+            src={StampGraphic}
+            alt="100% Organic Cotton"
+            className="floating-stamp looping-spin"
+          />
+        </div>
       </section>
 
       <section id="story" className="section story-section">
@@ -157,23 +248,46 @@ const Home = () => {
         <div className="story-overlay"></div>
         
         <div className="story-content-wrapper">
-          <div className="story-badge">
+          <div
+            ref={storyBadgeRef}
+            className={`story-badge reveal-story-badge${storyBadgeVisible ? ' is-visible' : ''}`}
+          >
             <h2>Our Story</h2>
           </div>
-          <img src={StickerLogo} alt="Logo Sticker" className="story-img" />
-          <div className="story-card">
+          <img
+            ref={storyImgRef}
+            src={StickerLogo}
+            alt="Logo Sticker"
+            className={`story-img reveal-story-img${storyImgVisible ? ' is-visible' : ''}`}
+          />
+          <div
+            ref={storyCardRef}
+            className={`story-card reveal-story-card${storyCardVisible ? ' is-visible' : ''}`}
+          >
             <div className="story-card-hole"></div>
-            <p>We are the softest embrace for your little ones. At Pippin & Pals, 
+            <p>We are the softest embrace for your little ones. At Pippin &amp; Pals, 
               we craft 'huggable' essentials from the purest organic cotton. Inspired by playful wonder, 
               our mission is simple: to protect the joy of childhood, one gentle stitch at a time.</p>
           </div>
-          <img src={StampGraphicStory} alt="100% Organic Cotton" className="story-stamp" />
+          <div
+            ref={storyStampRef}
+            className={`story-stamp-wrapper reveal-pop reveal-delay-3${storyStampVisible ? ' is-visible' : ''}`}
+          >
+            <img
+              src={StampGraphicStory}
+              alt="100% Organic Cotton"
+              className="story-stamp looping-spin"
+            />
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
       <section className="section features-section">
-        <div className="features-header">
+        <div
+          ref={featHeaderRef}
+          className={`features-header reveal-up${featHeaderVisible ? ' is-visible' : ''}`}
+        >
           <img src={Vector1} alt="" className="features-hook-img" />
           <div className="features-header-content">
             <div className="header-mascots left">
@@ -193,7 +307,10 @@ const Home = () => {
         </div>
         
         <div className="features-grid">
-          <div className="feature-item">
+          <div
+            ref={feat1Ref}
+            className={`feature-item reveal-up${feat1Visible ? ' is-visible' : ''}`}
+          >
             <div className="rabbit-card">
               <div className="rabbit-ears"></div>
               <div className="rabbit-head">
@@ -201,7 +318,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="feature-item">
+          <div
+            ref={feat2Ref}
+            className={`feature-item reveal-up reveal-delay-2${feat2Visible ? ' is-visible' : ''}`}
+          >
             <div className="rabbit-card">
               <div className="rabbit-ears"></div>
               <div className="rabbit-head">
@@ -209,7 +329,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="feature-item">
+          <div
+            ref={feat3Ref}
+            className={`feature-item reveal-up reveal-delay-3${feat3Visible ? ' is-visible' : ''}`}
+          >
             <div className="rabbit-card">
               <div className="rabbit-ears"></div>
               <div className="rabbit-head">
@@ -217,7 +340,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="feature-item">
+          <div
+            ref={feat4Ref}
+            className={`feature-item reveal-up reveal-delay-4${feat4Visible ? ' is-visible' : ''}`}
+          >
             <div className="rabbit-card">
               <div className="rabbit-ears"></div>
               <div className="rabbit-head">
@@ -235,7 +361,10 @@ const Home = () => {
 
       {/* Products Section */}
       <section id="collection" className="section products-section">
-        <div className="features-header">
+        <div
+          ref={prodHeaderRef}
+          className={`features-header reveal-up${prodHeaderVisible ? ' is-visible' : ''}`}
+        >
           <img src={Vector1} alt="" className="features-hook-img" />
           <div className="section-tag">
             <h2>Meet Your New Favorite Pals</h2>
@@ -286,9 +415,20 @@ const Home = () => {
           <p style={{ color: '#6D5649', fontSize: '16px', marginBottom: '24px' }}>{notice}</p>
         )}
 
-        <div className="products-grid">
-          {filteredProducts.map(product => (
-            <Link to={`/product/${productRoute(product)}`} className="product-card" key={product.id} style={{ textDecoration: 'none' }}>
+        <div
+          ref={prodGridRef}
+          className="products-grid"
+        >
+          {filteredProducts.map((product, idx) => (
+            <Link
+              to={`/product/${productRoute(product)}`}
+              className={`product-card reveal-up${prodGridVisible ? ' is-visible' : ''}`}
+              key={product.id}
+              style={{
+                textDecoration: 'none',
+                animationDelay: prodGridVisible ? `${idx * 0.08}s` : '0s',
+              }}
+            >
               <div className="product-img-wrapper">
                 <img src={product.img} alt={product.name} />
               </div>
@@ -333,23 +473,35 @@ const Home = () => {
         </div>
         
         <div className="values-content">
-          <div className="value-card v-organic">
+          <div
+            ref={valCard1Ref}
+            className={`value-card v-organic reveal-left${valCard1Visible ? ' is-visible' : ''}`}
+          >
             <h3>Purely Organic</h3>
             <p>100% premium cotton, gentle on skin and the planet.</p>
           </div>
           
-          <div className="value-card v-comfort">
+          <div
+            ref={valCard2Ref}
+            className={`value-card v-comfort reveal-left reveal-delay-2${valCard2Visible ? ' is-visible' : ''}`}
+          >
             <h3>Huggable Comfort</h3>
             <p>Crafted to feel like a warm, comforting embrace.</p>
           </div>
 
-          <div className="value-card v-design">
+          <div
+            ref={valCard3Ref}
+            className={`value-card v-design reveal-right${valCard3Visible ? ' is-visible' : ''}`}
+          >
             <h3>Whimsical Designs</h3>
             <p>Playful, mascot-inspired styles made for every adventure.</p>
           </div>
 
-          <div className="values-main-image">
-            <img src={ClothingBag} alt="Pippin & Pals Bags" />
+          <div
+            ref={valImgRef}
+            className={`values-main-image reveal-values-img${valImgVisible ? ' is-visible' : ''}`}
+          >
+            <img src={ClothingBag} alt="Pippin &amp; Pals Bags" />
           </div>
         </div>
       </section>
@@ -364,32 +516,44 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="features-header">
+        <div
+          ref={testimHeaderRef}
+          className={`features-header reveal-up${testimHeaderVisible ? ' is-visible' : ''}`}
+        >
           <img src={Vector1} alt="" className="features-hook-img" />
           <div className="section-tag" style={{background: '#FFF1A1'}}>
-            <h2 style={{color: '#E67C4F'}}>Loved by Little Pals & Their Moms</h2>
+            <h2 style={{color: '#E67C4F'}}>Loved by Little Pals &amp; Their Moms</h2>
           </div>
         </div>
         
-        <div className="testimonial-container">
+        <div
+          ref={testimBoxRef}
+          className={`testimonial-container reveal-up reveal-delay-2${testimBoxVisible ? ' is-visible' : ''}`}
+          style={{ transition: 'opacity 0.5s ease-in-out' }}
+        >
           <div className="testimonial-image-box">
-            <img src={TestimonialImg} alt="Happy Mom and Child" className="testimonial-img" />
+            <img key={activeTestimonial} src={testimonials[activeTestimonial].img} alt="Happy Mom and Child" className="testimonial-img" style={{ animation: 'fadeInUpBounce 0.6s ease forwards' }} />
           </div>
-          <div className="testimonial-content-box">
+          <div className="testimonial-content-box" key={`text-${activeTestimonial}`} style={{ animation: 'fadeInUpBounce 0.6s ease forwards' }}>
             <div className="testimonial-quote-bubble">
-              <p>"I was looking for something gentle for my daughter’s sensitive skin, and Pippin & Pals exceeded my expectations. It truly is a hug you can wear. She refuses to take her organic dress off!"</p>
+              <p>"{testimonials[activeTestimonial].quote}"</p>
             </div>
             <div className="testimonial-author-box">
-              <h4>Sarah M</h4>
-              <p>Mom of Lily</p>
+              <h4>{testimonials[activeTestimonial].author}</h4>
+              <p>{testimonials[activeTestimonial].relation}</p>
             </div>
           </div>
         </div>
 
         <div className="testimonial-dots">
-          <div className="dot"></div>
-          <div className="dot active"></div>
-          <div className="dot"></div>
+          {testimonials.map((_, idx) => (
+            <div 
+              key={idx} 
+              className={`dot ${activeTestimonial === idx ? 'active' : ''}`}
+              onClick={() => setActiveTestimonial(idx)}
+              style={{ cursor: 'pointer', transition: 'all 0.3s' }}
+            ></div>
+          ))}
         </div>
 
         <div className="testimonials-scallop-bottom">
@@ -399,14 +563,20 @@ const Home = () => {
 
       {/* FAQ Section */}
       <section className="section faq-section">
-        <div className="features-header">
+        <div
+          ref={faqHeaderRef}
+          className={`features-header reveal-up${faqHeaderVisible ? ' is-visible' : ''}`}
+        >
           <img src={Vector1} alt="" className="features-hook-img" />
           <div className="section-tag">
             <h2>Curious Minds Ask</h2>
           </div>
         </div>
         
-        <div className="faq-container">
+        <div
+          ref={faqContainerRef}
+          className={`faq-container reveal-up reveal-delay-2${faqContainerVisible ? ' is-visible' : ''}`}
+        >
           {faqs.map((faq, index) => (
             <div 
               key={index} 
@@ -429,7 +599,10 @@ const Home = () => {
 
       {/* CTA Section */}
       <section className="section cta-section">
-        <div className="cta-oval-wrapper">
+        <div
+          ref={ctaRef}
+          className={`cta-oval-wrapper reveal-scale${ctaVisible ? ' is-visible' : ''}`}
+        >
           <div className="cta-oval-inner">
              <h2>Ready to Wear the Softest Hug?</h2>
              <p>Give your little ones the comfort they deserve with our 100% organic essentials. Made for magic, naps, and everything in between.</p>
@@ -438,8 +611,18 @@ const Home = () => {
              </button>
           </div>
           
-          <img src={RabbitSheep} className="cta-mascot mascot-left" alt="Rabbit mascot" />
-          <img src={RabbitSheep2} className="cta-mascot mascot-right" alt="Sheep mascot" />
+          <img
+            ref={ctaMascotLRef}
+            src={RabbitSheep}
+            className={`cta-mascot mascot-left reveal-mascot-left${ctaMascotLVisible ? ' is-visible' : ''}`}
+            alt="Rabbit mascot"
+          />
+          <img
+            ref={ctaMascotRRef}
+            src={RabbitSheep2}
+            className={`cta-mascot mascot-right reveal-mascot-right${ctaMascotRVisible ? ' is-visible' : ''}`}
+            alt="Sheep mascot"
+          />
         </div>
       </section>
     </>

@@ -68,6 +68,83 @@ body {
   opacity: 0; /* Base opacity overridden by animation to prevent flash */
 }
 
+/* ============================================================ */
+/* 🎬 SCROLL-TRIGGERED REVEAL ANIMATIONS                       */
+/* ============================================================ */
+
+/* --- Keyframes --- */
+@keyframes revealFromLeft {
+  0%   { opacity: 0; transform: translateX(-60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes revealFromRight {
+  0%   { opacity: 0; transform: translateX(60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes revealFromBottom {
+  0%   { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes revealScale {
+  0%   { opacity: 0; transform: scale(0.88); }
+  60%  { opacity: 1; transform: scale(1.03); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes revealRotatePop {
+  0%   { opacity: 0; transform: rotate(-6deg) scale(0.85); }
+  60%  { opacity: 1; transform: rotate(2deg) scale(1.04); }
+  100% { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+
+@keyframes revealFade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* --- Base state: hidden, preserve layout --- */
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-scale,
+.reveal-pop,
+.reveal-fade {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Delay helpers */
+.reveal-delay-1 { animation-delay: 0.1s !important; }
+.reveal-delay-2 { animation-delay: 0.2s !important; }
+.reveal-delay-3 { animation-delay: 0.3s !important; }
+.reveal-delay-4 { animation-delay: 0.4s !important; }
+.reveal-delay-5 { animation-delay: 0.5s !important; }
+.reveal-delay-6 { animation-delay: 0.6s !important; }
+.reveal-delay-7 { animation-delay: 0.7s !important; }
+
+/* --- Active state (toggled by IntersectionObserver via JS) --- */
+.reveal-left.is-visible {
+  animation: revealFromLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal-right.is-visible {
+  animation: revealFromRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal-up.is-visible {
+  animation: revealFromBottom 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal-scale.is-visible {
+  animation: revealScale 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal-pop.is-visible {
+  animation: revealRotatePop 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal-fade.is-visible {
+  animation: revealFade 0.8s ease forwards;
+}
+
 /* Hover glow for buttons */
 .btn-primary {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -337,15 +414,41 @@ h6,
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
 }
 
-/* Organic cotton stamp — bottom right */
-.floating-stamp {
+/* Specific reveal for centered hero girls image */
+@keyframes revealHeroGirls {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.85) translateY(20px); }
+  70% { opacity: 1; transform: translateX(-50%) scale(1.02) translateY(-5px); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1) translateY(0); }
+}
+
+.hero-girls.reveal-hero-girls {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.hero-girls.reveal-hero-girls.is-visible {
+  animation: revealHeroGirls 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Stamp wrappers handle positioning and entrance reveal */
+.floating-stamp-wrapper {
   position: absolute;
   right: 8%;
   bottom: 38%;
   width: 170px;
-  animation: spin 15s linear infinite;
   z-index: 6;
+  pointer-events: none;
+}
+
+/* Inner stamp handles continuous rotation */
+.floating-stamp {
+  width: 100%;
+  height: auto;
   opacity: 0.9;
+}
+
+.looping-spin {
+  animation: spin 15s linear infinite !important;
 }
 
 @keyframes spin {
@@ -421,6 +524,32 @@ h6,
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
 }
 
+/* Story-img scroll reveal — lands at its exact resting transform */
+@keyframes revealStoryImg {
+  0%   { opacity: 0; transform: rotate(3deg) translateX(-220px); }
+  100% { opacity: 1; transform: rotate(3deg) translateX(-100px); }
+}
+.story-img.reveal-story-img {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.story-img.reveal-story-img.is-visible {
+  animation: revealStoryImg 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Story-card scroll reveal — lands at its exact resting transform */
+@keyframes revealStoryCard {
+  0%   { opacity: 0; transform: translateX(-60px); }
+  100% { opacity: 1; transform: translateX(-140px); }
+}
+.story-card.reveal-story-card {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.story-card.reveal-story-card.is-visible {
+  animation: revealStoryCard 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
 .story-card {
   background: #FDFEF6;
   border-radius: 24px;
@@ -464,19 +593,39 @@ h6,
   z-index: 15;
 }
 
+/* Specific reveal for tilted centered story badge */
+@keyframes revealStoryBadge {
+  0% { opacity: 0; transform: translateX(-50%) rotate(-8deg) translateY(20px); }
+  100% { opacity: 1; transform: translateX(-50%) rotate(-8deg) translateY(0); }
+}
+
+.story-badge.reveal-story-badge {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.story-badge.reveal-story-badge.is-visible {
+  animation: revealStoryBadge 0.7s ease-out forwards;
+}
+
 .story-badge h2 {
   color: #E67C4F;
   font-size: 32px;
 }
 
-.story-stamp {
+.story-stamp-wrapper {
   position: absolute;
   right: -94px;
   bottom: 5px;
   width: 300px;
   z-index: 8;
+  pointer-events: none;
+}
+
+.story-stamp {
+  width: 100%;
+  height: auto;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
-  animation: spin 20s linear infinite;
 }
 
 /* Features Section */
@@ -850,6 +999,21 @@ h6,
   z-index: 15;
 }
 
+/* Specific reveal for centered values main image */
+@keyframes revealValuesImg {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.values-main-image.reveal-values-img {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.values-main-image.reveal-values-img.is-visible {
+  animation: revealValuesImg 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 .values-main-image img {
   width: 100%;
   height: auto;
@@ -1182,6 +1346,31 @@ h6,
   right: -40px;
   bottom: 0px;
   transform: rotate(10deg);
+}
+
+/* CTA Mascot scroll reveals */
+@keyframes revealMascotLeft {
+  0%   { opacity: 0; transform: translateY(-50%) rotate(-10deg) translateX(-80px); }
+  100% { opacity: 1; transform: translateY(-50%) rotate(-10deg) translateX(0); }
+}
+@keyframes revealMascotRight {
+  0%   { opacity: 0; transform: rotate(10deg) translateX(80px); }
+  100% { opacity: 1; transform: rotate(10deg) translateX(0); }
+}
+
+.cta-mascot.reveal-mascot-left {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.cta-mascot.reveal-mascot-left.is-visible {
+  animation: revealMascotLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+.cta-mascot.reveal-mascot-right {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+.cta-mascot.reveal-mascot-right.is-visible {
+  animation: revealMascotRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 }
 
 /* Footer */

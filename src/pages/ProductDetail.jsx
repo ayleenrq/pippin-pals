@@ -4,6 +4,7 @@ import { useProduct } from '../hooks/useProducts';
 import { useWishlist } from '../hooks/useWishlist';
 import { createShopifyCheckout } from '../services/shopifyService';
 import { toast } from 'sonner';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
 import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
@@ -19,6 +20,11 @@ const ProductDetail = () => {
   const [selectedOptions, setSelectedOptions] = useState({});
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
+
+  // ── Scroll-reveal refs ──
+  const [galleryRef, galleryVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [infoRef, infoVisible]       = useScrollAnimation({ threshold: 0.1 });
+  const [breadRef, breadVisible]     = useScrollAnimation({ threshold: 0.05 });
 
   // Initialize default options from the first variant
   React.useEffect(() => {
@@ -148,13 +154,19 @@ const ProductDetail = () => {
   return (
     <div className="section product-detail-section">
       {/* Breadcrumb */}
-      <div className="detail-breadcrumb">
+      <div
+        ref={breadRef}
+        className={`detail-breadcrumb reveal-up${breadVisible ? ' is-visible' : ''}`}
+      >
         <Link to="/" className="detail-back-btn">← Back to Collection</Link>
       </div>
 
       <div className="detail-layout">
         {/* ── LEFT: Image Gallery ── */}
-        <div className="detail-gallery">
+        <div
+          ref={galleryRef}
+          className={`detail-gallery reveal-left${galleryVisible ? ' is-visible' : ''}`}
+        >
           {/* Main image */}
           <div className="detail-main-img-box">
             {!isAvailable && (
@@ -169,11 +181,12 @@ const ProductDetail = () => {
 
           {/* Thumbnail strip */}
           {displayImages.length > 1 && (
-            <div className="detail-thumbnails">
+            <div className="detail-thumbnails reveal-up reveal-delay-2">
               {displayImages.map((img, idx) => (
                 <button
                   key={idx}
-                  className={`detail-thumb ${activeImgIndex === idx ? 'active' : ''}`}
+                  className={`detail-thumb reveal-scale ${activeImgIndex === idx ? 'active' : ''}`}
+                  style={{ animationDelay: `${idx * 0.1}s` }}
                   onClick={() => setActiveImgIndex(idx)}
                 >
                   <img src={img.url} alt={img.altText || `View ${idx + 1}`} />
@@ -184,7 +197,10 @@ const ProductDetail = () => {
         </div>
 
         {/* ── RIGHT: Product Info ── */}
-        <div className="detail-info">
+        <div
+          ref={infoRef}
+          className={`detail-info reveal-right${infoVisible ? ' is-visible' : ''}`}
+        >
           {/* Title tag */}
           <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px', alignSelf: 'flex-start' }}>
             <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '-4px', marginLeft: 0 }} />
@@ -309,13 +325,13 @@ const ProductDetail = () => {
           </div>
 
           {/* ── Features list ── */}
-          <div className="detail-extra">
+          <div className="detail-extra reveal-up reveal-delay-4">
             <ul className="detail-features-list">
-              <li>☁️ 100% Organic Cotton</li>
-              <li>🌱 Hypoallergenic & Breathable</li>
-              <li>🤍 Cloud Soft Feel</li>
-              <li>🌍 Fast Worldwide Shipping</li>
-              <li>🔄 Free 30-Day Returns</li>
+              <li className="reveal-fade reveal-delay-5">☁️ 100% Organic Cotton</li>
+              <li className="reveal-fade reveal-delay-6">🌱 Hypoallergenic & Breathable</li>
+              <li className="reveal-fade reveal-delay-7">🤍 Cloud Soft Feel</li>
+              <li className="reveal-fade">🌍 Fast Worldwide Shipping</li>
+              <li className="reveal-fade">🔄 Free 30-Day Returns</li>
             </ul>
           </div>
         </div>

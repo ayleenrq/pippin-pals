@@ -4,6 +4,7 @@ import { useProducts } from '../hooks/useProducts';
 import { useWishlist } from '../hooks/useWishlist';
 import { createShopifyCheckout } from '../services/shopifyService';
 import { toast } from 'sonner';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
 import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
@@ -14,6 +15,9 @@ const Favorites = () => {
   const { products, isLoading } = useProducts();
   const wishlist = useWishlist();
   const [cartLoading, setCartLoading] = useState(null);
+
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [gridRef, gridVisible] = useScrollAnimation({ threshold: 0.05 });
 
   const handleRemove = (event, productId) => {
     event.preventDefault();
@@ -49,7 +53,10 @@ const Favorites = () => {
 
   return (
     <div className="section profile-section">
-      <div className="features-header profile-header">
+      <div
+        ref={headerRef}
+        className={`features-header profile-header reveal-up${headerVisible ? ' is-visible' : ''}`}
+      >
         <img src={Vector1} alt="" className="features-hook-img" />
         <div className="section-tag" style={{ background: '#FFC2C2' }}>
           <h2 style={{ color: '#E67C4F' }}>My Wishlist</h2>
@@ -79,13 +86,19 @@ const Favorites = () => {
           <p className="favorites-count">
             {favoriteProducts.length} item{favoriteProducts.length !== 1 ? 's' : ''} saved
           </p>
-          <div className="products-grid favorites-grid">
-            {favoriteProducts.map((product) => (
+          <div
+            ref={gridRef}
+            className={`products-grid favorites-grid${gridVisible ? ' is-visible' : ''}`}
+          >
+            {favoriteProducts.map((product, idx) => (
               <Link
                 to={`/product/${productRoute(product)}`}
-                className="product-card"
+                className={`product-card reveal-up${gridVisible ? ' is-visible' : ''}`}
                 key={product.id}
-                style={{ textDecoration: 'none' }}
+                style={{
+                  textDecoration: 'none',
+                  animationDelay: gridVisible ? `${idx * 0.1}s` : '0s'
+                }}
               >
                 <div className="product-img-wrapper" style={{ border: '2px dashed #FFC2C2' }}>
                   <img src={product.img} alt={product.name} />
