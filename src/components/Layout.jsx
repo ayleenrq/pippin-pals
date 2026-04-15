@@ -77,7 +77,7 @@ const Layout = () => {
           <Link to="/" className="nav-link">Home</Link>
           <HashLink smooth to="/#story" className="nav-link">Our Story</HashLink>
           <HashLink smooth to="/#collection" className="nav-link">The Collection</HashLink>
-          <Link to="/" className="nav-link">Journal</Link>
+          <Link to="/branding" className="nav-link">Branding</Link>
         </div>
 
         {/* Desktop Icons */}
@@ -155,7 +155,7 @@ const Layout = () => {
             <nav className="mobile-nav-links">
               <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>🏠 Home</Link>
               <HashLink smooth to="/#story" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>📖 Our Story</HashLink>
-              <HashLink smooth to="/#collection" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>👗 The Collection</HashLink>
+              <Link to="/branding" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>🎨 Branding</Link>
               <Link to="/favorites" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 💛 Wishlist {wishlistCount > 0 && <span className="mobile-wishlist-badge">{wishlistCount}</span>}
               </Link>

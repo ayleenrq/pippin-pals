@@ -9,6 +9,7 @@ import ProductDetail from './pages/ProductDetail';
 import Profile from './pages/Profile';
 import Favorites from './pages/Favorites';
 import Login from './pages/Login';
+import Branding from './pages/Branding';
 import Register from './pages/Register';
 import { Toaster } from 'sonner';
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="product/:id" element={<ProductDetail />} />
             <Route path="profile" element={<Profile />} />
             <Route path="favorites" element={<Favorites />} />
+            <Route path="branding" element={<Branding />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>

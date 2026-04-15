@@ -1,6 +1,5 @@
 "use client";
-import { n as __toESM } from "./chunk-BVTlhY3a.js";
-import { t as require_react } from "./react.js";
+import { r as __toESM, t as require_react } from "./react-BQupsjBO.js";
 import { t as require_react_dom } from "./react-dom.js";
 //#region node_modules/sonner/dist/index.mjs
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);

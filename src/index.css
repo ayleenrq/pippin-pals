@@ -3058,3 +3058,1040 @@ h6,
     font-size: 14px;
   }
 }
+
+/* ================================================================ */
+/* 🎨  BRANDING PAGE                                                 */
+/* ================================================================ */
+
+/* ---------- page wrapper ---------- */
+.branding-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ---------- shared section ---------- */
+.branding-section {
+  padding: 100px 72px;
+  position: relative;
+}
+
+.branding-section.bg-cream        { background: #FEFFFC; }
+.branding-section.bg-green-light  { background: #F8FCE1; }
+.branding-section.bg-yellow       { background: #FFF1A1; }
+.branding-section.bg-orange       { background: #E67C4F; }
+.branding-section.bg-pink-soft    { background: #FFF5F5; }
+.branding-section.no-pad-bottom   { padding-bottom: 0; }
+
+/* ---------- section header ---------- */
+.branding-section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.branding-section-label {
+  font-family: 'New Bread', cursive;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #E67C4F;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.branding-section-title {
+  font-family: 'New Bread', cursive;
+  font-size: clamp(36px, 5vw, 56px);
+  color: #482C1C;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.branding-section-desc {
+  font-size: 18px;
+  color: #6D5649;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ================================================================ */
+/* BRAND STORY SECTION                                               */
+/* ================================================================ */
+.branding-story-section {
+  background: #F8FCE1;
+  padding: 80px 120px;
+}
+
+.branding-story-text {
+  max-width: 640px;
+  margin-bottom: 0;
+}
+
+.branding-story-title {
+  font-family: 'New Bread', cursive;
+  font-size: clamp(36px, 5vw, 52px);
+  color: #482C1C;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.branding-story-desc {
+  font-size: 16px;
+  color: #6D5649;
+  line-height: 1.75;
+  font-weight: 500;
+  max-width: 560px;
+}
+
+.branding-story-divider {
+  border: none;
+  border-top: 2px dashed #C5D988;
+  margin: 48px 0;
+  width: 100%;
+}
+
+.branding-story-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 100%;
+}
+
+.branding-story-logo-card {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.branding-story-logo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.branding-story-logo-bg {
+  background: #FDFBE8;
+  border-radius: 28px;
+  padding: 48px 36px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* P watermark positions — 3×3 grid */
+.branding-story-p-watermark {
+  position: absolute;
+  width: 52px;
+  height: auto;
+  opacity: 0.13;
+  pointer-events: none;
+  user-select: none;
+  filter: saturate(0);
+}
+.branding-story-p-watermark.p-pos-1 { top: 12px;  left: 12px; }
+.branding-story-p-watermark.p-pos-2 { top: 12px;  left: 50%; transform: translateX(-50%); }
+.branding-story-p-watermark.p-pos-3 { top: 12px;  right: 12px; }
+.branding-story-p-watermark.p-pos-4 { top: 50%;   left: 12px;  transform: translateY(-50%); }
+.branding-story-p-watermark.p-pos-5 { top: 50%;   left: 50%;   transform: translate(-50%,-50%); }
+.branding-story-p-watermark.p-pos-6 { top: 50%;   right: 12px; transform: translateY(-50%); }
+.branding-story-p-watermark.p-pos-7 { bottom: 12px; left: 12px; }
+.branding-story-p-watermark.p-pos-8 { bottom: 12px; left: 50%; transform: translateX(-50%); }
+.branding-story-p-watermark.p-pos-9 { bottom: 12px; right: 12px; }
+
+.branding-story-logo-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+}
+
+/* ================================================================ */
+/* BRAND LOGO PHILOSOPHY SECTION                                     */
+/* ================================================================ */
+.branding-logo-phil-wrap {
+  width: 100%;
+}
+
+.branding-logo-phil-top {
+  background: #FFC2C2;
+  padding: 80px 120px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.branding-logo-phil-attrs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.branding-logo-phil-attr-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.branding-logo-phil-attr-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #482C1C;
+  overflow: hidden;
+}
+
+.branding-logo-phil-attr-icon img {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+
+.branding-logo-phil-attr-label {
+  font-family: 'New Bread', cursive;
+  color: #482C1C;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.branding-logo-phil-desc {
+  background: #FDFBE8;
+  border-radius: 16px;
+  padding: 48px;
+  border: 2px solid #482C1C;
+  flex: 1;
+}
+
+.branding-logo-phil-title {
+  font-family: 'New Bread', cursive;
+  font-size: 42px;
+  color: #482C1C;
+  margin-bottom: 24px;
+}
+
+.branding-logo-phil-desc p {
+  font-size: 16px;
+  color: #482C1C;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.branding-logo-phil-desc p:last-child {
+  margin-bottom: 0;
+}
+
+.branding-logo-phil-bottom {
+  background: #F8FCE1;
+  padding: 80px 120px;
+}
+
+.branding-logo-phil-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.branding-logo-phil-logo-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.branding-logo-phil-variants {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.branding-logo-phil-variant-card {
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+}
+
+.branding-logo-phil-variant-img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ================================================================ */
+/* HERO                                                              */
+/* ================================================================ */
+.branding-hero {
+  position: relative;
+  height: 90vh;
+  min-height: 560px;
+  max-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #D6E499;
+}
+
+.branding-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  transform: scale(1.05);
+}
+
+.branding-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(72,44,28,0.45) 0%, rgba(72,44,28,0.25) 100%);
+  z-index: 2;
+}
+
+.branding-hero-inner {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.branding-hero-logo {
+  width: 180px;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+  animation: popIn 0.9s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+}
+
+.branding-hero-title {
+  font-family: 'New Bread', cursive;
+  font-size: clamp(48px, 8vw, 96px);
+  color: #FEFFFC;
+  line-height: 1;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+.branding-hero-subtitle {
+  font-size: 20px;
+  color: rgba(255,255,255,0.9);
+  max-width: 520px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.branding-hero-mascot {
+  position: absolute;
+  bottom: -10px;
+  width: 200px;
+  z-index: 8;
+  opacity: 0.85;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+  animation: popIn 1s cubic-bezier(0.175,0.885,0.32,1.275) 0.3s forwards, floatGentle 5s ease-in-out infinite alternate 1.3s;
+}
+.branding-hero-mascot.left  { left: 4%; }
+.branding-hero-mascot.right { right: 4%; transform: scaleX(-1); }
+
+/* ================================================================ */
+/* MARQUEE BAR                                                        */
+/* ================================================================ */
+.branding-marquee-bar {
+  background: #E67C4F;
+  padding: 18px 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+@keyframes brandingMarquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.branding-marquee-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: brandingMarquee 20s linear infinite;
+}
+
+.branding-marquee-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+}
+
+/* ================================================================ */
+/* LOGO SHOWCASE                                                      */
+/* ================================================================ */
+.branding-logo-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.branding-logo-primary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.branding-logo-primary-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.branding-logo-bg-light {
+  width: 100%;
+  background: #F8FCE1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 48px;
+}
+
+.branding-logo-bg-dark {
+  width: 100%;
+  background: #482C1C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 48px;
+}
+
+.branding-logo-primary-img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+}
+
+.invert-logo {
+  filter: brightness(0) invert(1);
+}
+
+.branding-logo-card-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6D5649;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px;
+}
+.branding-logo-card-label.light {
+  color: #6D5649;
+}
+
+/* ================================================================ */
+/* LOGO VARIATIONS GRID                                              */
+/* ================================================================ */
+.branding-logo-variations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.branding-logo-var-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  cursor: default;
+}
+
+.branding-logo-var-preview {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease;
+}
+.branding-logo-var-preview:hover {
+  transform: translateY(-4px);
+}
+
+.branding-logo-var-img {
+  max-width: 120px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.branding-logo-var-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6D5649;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ================================================================ */
+/* COLOR PALETTE                                                      */
+/* ================================================================ */
+.branding-colors-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+}
+
+.branding-color-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+.branding-color-card:hover {
+  transform: translateY(-6px);
+}
+
+.branding-color-swatch {
+  position: relative;
+  height: 140px;
+  width: 100%;
+}
+
+.branding-color-swatch-border {
+  position: absolute;
+  inset: 8px;
+  border-radius: 12px;
+  border: 2px dashed rgba(0,0,0,0.12);
+}
+
+.branding-color-info {
+  background: #FEFFFC;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.branding-color-name {
+  font-family: 'New Bread', cursive;
+  font-size: 14px;
+  color: #482C1C;
+}
+
+.branding-color-hex {
+  font-size: 12px;
+  color: #6D5649;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: monospace;
+}
+
+.branding-color-role {
+  font-size: 11px;
+  color: #E67C4F;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.branding-color-strip {
+  display: flex;
+  height: 24px;
+  border-radius: 80px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.branding-color-strip-block {
+  flex: 1;
+}
+
+/* ================================================================ */
+/* TYPOGRAPHY                                                         */
+/* ================================================================ */
+.branding-typo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.branding-typo-card {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 32px;
+  padding: 48px 40px;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition: transform 0.3s ease;
+}
+.branding-typo-card:hover {
+  transform: translateY(-6px);
+}
+
+.branding-typo-sample {
+  font-size: clamp(52px, 6vw, 80px);
+  line-height: 1;
+  color: #FEFFFC;
+}
+.branding-typo-sample.new-bread  { font-family: 'New Bread', cursive; }
+.branding-typo-sample.quicksand  { font-family: 'Quicksand', sans-serif; font-weight: 600; }
+
+.branding-typo-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.branding-typo-name {
+  font-family: 'New Bread', cursive;
+  font-size: 24px;
+  color: #FEFFFC;
+}
+
+.branding-typo-role {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FFF1A1;
+}
+
+.branding-typo-usage {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+.branding-typo-weights {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.branding-typo-weight {
+  background: rgba(255,255,255,0.15);
+  color: #FEFFFC;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* ================================================================ */
+/* MASCOTS                                                            */
+/* ================================================================ */
+.branding-mascots-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto 64px;
+}
+
+.branding-mascot-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background: #FEFFFC;
+  border-radius: 24px;
+  padding: 28px 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.branding-mascot-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.1);
+}
+
+.branding-mascot-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.branding-mascot-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6D5649;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.branding-sticker-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: #FEFFFC;
+  border-radius: 32px;
+  padding: 40px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+
+.branding-sticker-img {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+  animation: floatGentle 4s ease-in-out infinite alternate;
+}
+
+.branding-ellipse {
+  width: 60px;
+  height: auto;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.branding-sticker-caption h3 {
+  font-family: 'New Bread', cursive;
+  font-size: 26px;
+  color: #E67C4F;
+  margin-bottom: 10px;
+}
+
+.branding-sticker-caption p {
+  font-size: 16px;
+  color: #6D5649;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ================================================================ */
+/* CONTEXT / USAGE BENTO                                             */
+/* ================================================================ */
+.branding-context-bento {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.branding-context-card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  transition: transform 0.35s ease;
+}
+.branding-context-card:hover { transform: scale(1.02); }
+.branding-context-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.branding-context-card.tall { min-height: 440px; }
+
+.branding-context-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.branding-context-col .branding-context-card {
+  flex: 1;
+  min-height: 200px;
+}
+
+/* ================================================================ */
+/* MOCKUP GRID                                                        */
+/* ================================================================ */
+.branding-mockup-hero {
+  max-width: 900px;
+  margin: 0 auto 56px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+.branding-mockup-hero-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.branding-mockup-hero:hover .branding-mockup-hero-img { transform: scale(1.03); }
+
+.branding-stamps-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.branding-stamp-card {
+  width: 130px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.branding-stamp-card:hover { transform: scale(1.08) rotate(2deg); }
+.branding-stamp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.branding-mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.branding-mockup-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  aspect-ratio: 3/4;
+  transition: transform 0.35s ease;
+}
+.branding-mockup-card:hover { transform: translateY(-8px); }
+.branding-mockup-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================================================================ */
+/* GALLERY MASONRY                                                    */
+/* ================================================================ */
+.branding-gallery-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.branding-gallery-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.branding-gallery-img-wrap {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.35s ease;
+}
+.branding-gallery-img-wrap:hover { transform: scale(1.02); }
+.branding-gallery-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.branding-gallery-img-wrap:not(.tall) { height: 260px; }
+.branding-gallery-img-wrap.tall { flex: 1; min-height: 540px; }
+
+/* ================================================================ */
+/* APPAREL BENTO                                                      */
+/* ================================================================ */
+.branding-apparel-bento {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.branding-apparel-card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+.branding-apparel-card:hover { transform: scale(1.02); }
+.branding-apparel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.branding-apparel-card.main { min-height: 520px; }
+
+.branding-apparel-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.branding-apparel-side .branding-apparel-card { flex: 1; min-height: 155px; }
+
+/* ================================================================ */
+/* BILLBOARD                                                          */
+/* ================================================================ */
+.branding-billboard-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+}
+
+.branding-billboard-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.branding-billboard-wrap:hover .branding-billboard-img { transform: scale(1.02); }
+
+/* ================================================================ */
+/* ASSETS CTA                                                         */
+/* ================================================================ */
+.branding-assets-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 80px 40px 0;
+  text-align: center;
+  position: relative;
+}
+
+.branding-assets-logo {
+  width: 160px;
+}
+
+.branding-assets-title {
+  font-family: 'New Bread', cursive;
+  font-size: clamp(40px, 6vw, 72px);
+  color: #FEFFFC;
+  line-height: 1.1;
+}
+
+.branding-assets-desc {
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.branding-assets-mascots {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+.branding-assets-mascots img {
+  width: 140px;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+  animation: floatGentle 4.5s ease-in-out infinite alternate;
+}
+.branding-assets-mascots img:last-child { animation-delay: 1.5s; }
+
+/* ================================================================ */
+/* RESPONSIVE — BRANDING PAGE                                        */
+/* ================================================================ */
+@media (max-width: 1024px) {
+  .branding-section {
+    padding: 80px 40px;
+  }
+  .branding-colors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .branding-mascots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .branding-mockup-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .branding-logo-showcase {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 768px) {
+  .branding-section {
+    padding: 64px 24px;
+  }
+  .branding-hero-mascot { display: none; }
+  .branding-hero-title  { font-size: 48px; }
+
+  .branding-logo-variations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .branding-colors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .branding-typo-grid {
+    grid-template-columns: 1fr;
+  }
+  .branding-mascots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .branding-context-bento {
+    grid-template-columns: 1fr;
+  }
+  .branding-context-card.tall { min-height: 260px; }
+  .branding-context-col { flex-direction: row; }
+
+  .branding-mockup-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .branding-gallery-masonry {
+    grid-template-columns: 1fr;
+  }
+  .branding-gallery-img-wrap.tall { min-height: 300px; }
+
+  .branding-apparel-bento {
+    grid-template-columns: 1fr;
+  }
+  .branding-apparel-card.main { min-height: 320px; }
+  .branding-apparel-side { flex-direction: row; flex-wrap: wrap; }
+  .branding-apparel-side .branding-apparel-card { min-height: 160px; flex: 1 1 45%; }
+
+  .branding-sticker-row {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+}
