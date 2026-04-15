@@ -9,39 +9,7 @@ import { toast } from 'sonner';
 import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
 import HeartIcon from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
 
-// Color palette for Pippin & Pals color names → hex swatch
-const COLOR_SWATCHES = {
-  apricot:   '#F4A97B',
-  pistachio: '#C3E07A',
-  vanilla:   '#FFF3CD',
-  berry:     '#D4789A',
-  lemon:     '#FFF1A1',
-  white:     '#F8FCE1',
-  pink:      '#FFC2C2',
-  green:     '#D6E499',
-  yellow:    '#FFF1A1',
-  blue:      '#A8D8EA',
-  purple:    '#C9B1D9',
-  red:       '#F4A0A0',
-  orange:    '#F4A97B',
-  brown:     '#C5A07B',
-  grey:      '#D4D4D4',
-  gray:      '#D4D4D4',
-  black:     '#3D3D3D',
-  navy:      '#4A5568',
-};
-
-const getColorSwatch = (colorName) => {
-  return COLOR_SWATCHES[colorName?.toLowerCase()] || '#E8E8E8';
-};
-
-const isLight = (hex) => {
-  const c = hex.replace('#', '');
-  const r = parseInt(c.substring(0, 2), 16);
-  const g = parseInt(c.substring(2, 4), 16);
-  const b = parseInt(c.substring(4, 6), 16);
-  return (r * 299 + g * 587 + b * 114) / 1000 > 160;
-};
+// Helper functions removed as color swatches are now text-based.
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -52,16 +20,26 @@ const ProductDetail = () => {
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
 
-  // Find the matching variant based on selected options
+  // Initialize default options from the first variant
+  React.useEffect(() => {
+    if (product?.variants?.length && Object.keys(selectedOptions).length === 0) {
+      const defaultVariant = product.variants[0];
+      const initialOptions = {};
+      defaultVariant.selectedOptions.forEach((opt) => {
+        initialOptions[opt.name] = opt.value;
+      });
+      setSelectedOptions(initialOptions);
+    }
+  }, [product]);
+
+  // Find the exact matching variant based on all selected options
   const selectedVariant = useMemo(() => {
     if (!product?.variants?.length) return null;
-    if (Object.keys(selectedOptions).length === 0) return product.variants[0];
-
+    
+    // Find variant where all its options match our current selected options
     return product.variants.find((v) =>
-      v.selectedOptions.every(
-        (opt) => selectedOptions[opt.name] === opt.value
-      )
-    ) || product.variants[0];
+      v.selectedOptions.every((opt) => selectedOptions[opt.name] === opt.value)
+    ) || product.variants[0]; // fallback if not found
   }, [product, selectedOptions]);
 
   // Sync main image with the selected variant's image
@@ -208,10 +186,10 @@ const ProductDetail = () => {
         {/* ── RIGHT: Product Info ── */}
         <div className="detail-info">
           {/* Title tag */}
-          <div className="features-header" style={{ marginBottom: '20px', alignItems: 'flex-start' }}>
-            <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '-4px' }} />
-            <div className="section-tag" style={{ background: '#FFF1A1', padding: '8px 28px' }}>
-              <h2 style={{ fontSize: '26px' }}>{product.name}</h2>
+          <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px', alignSelf: 'flex-start' }}>
+            <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '-4px', marginLeft: 0 }} />
+            <div className="section-tag" style={{ background: '#FFF1A1', padding: '8px 28px', margin: 0 }}>
+              <h2 style={{ fontSize: '26px', margin: 0 }}>{product.name}</h2>
             </div>
           </div>
 
@@ -235,10 +213,8 @@ const ProductDetail = () => {
                   <span className="detail-option-selected">: {selectedOptions['Color']}</span>
                 )}
               </div>
-              <div className="detail-color-swatches">
+              <div className="detail-size-grid">
                 {colorOption.values.map((colorVal) => {
-                  const swatch = getColorSwatch(colorVal);
-                  const light = isLight(swatch);
                   const isSelected = selectedOptions['Color'] === colorVal;
                   // Check if any variant with this color is available
                   const hasStock = product.variants.some(
@@ -249,15 +225,12 @@ const ProductDetail = () => {
                   return (
                     <button
                       key={colorVal}
-                      className={`color-swatch ${isSelected ? 'selected' : ''} ${!hasStock ? 'out-of-stock' : ''}`}
-                      style={{ backgroundColor: swatch }}
+                      className={`size-btn ${isSelected ? 'selected' : ''} ${!hasStock ? 'out-of-stock' : ''}`}
                       onClick={() => hasStock && handleOptionSelect('Color', colorVal)}
-                      title={`${colorVal}${!hasStock ? ' (Sold Out)' : ''}`}
+                      title={!hasStock ? `${colorVal} — Sold Out` : colorVal}
                       disabled={!hasStock}
                     >
-                      {isSelected && (
-                        <span className="color-swatch-check" style={{ color: light ? '#482C1C' : 'white' }}>✓</span>
-                      )}
+                      {colorVal}
                     </button>
                   );
                 })}

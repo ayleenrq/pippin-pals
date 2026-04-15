@@ -24,6 +24,61 @@ body {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
 }
 
+/* ========================================= */
+/* 🌟 PALS ANIMATIONS & MICRO-INTERACTIONS 🌟 */
+/* ========================================= */
+
+@keyframes fadeInUpBounce {
+  0% { opacity: 0; transform: translateY(30px); }
+  60% { opacity: 1; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.85); }
+  70% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Page wrapper auto-animations */
+.auth-page,
+.profile-section,
+.product-detail-section,
+.favorites-grid {
+  animation: fadeInUpBounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Auto-floating for mascots */
+.auth-mascot,
+.auth-mascot-sm,
+.cta-mascot,
+.favorites-empty-img,
+.hero-mascot {
+  animation: popIn 0.8s ease-out forwards, floatGentle 4.5s ease-in-out infinite alternate 0.8s;
+}
+
+.auth-card,
+.profile-container {
+  animation: fadeInUpBounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s forwards;
+  opacity: 0; /* Base opacity overridden by animation to prevent flash */
+}
+
+/* Hover glow for buttons */
+.btn-primary {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(230, 124, 79, 0.35);
+}
+
+
 h1,
 h2,
 h3,
@@ -109,11 +164,14 @@ h6,
   background-color: transparent;
   color: #E67C4F;
   border: 2px solid #E67C4F;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-outline:hover {
   background-color: #E67C4F;
   color: #F8FCE1;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(230, 124, 79, 0.2);
 }
 
 /* Navbar */
@@ -615,11 +673,13 @@ h6,
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  will-change: transform;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(230, 124, 79, 0.12);
 }
 
 .product-img-wrapper {
@@ -632,12 +692,18 @@ h6,
   justify-content: center;
   position: relative;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .product-img-wrapper img {
   width: 90%;
   height: auto;
   object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover .product-img-wrapper img {
+  transform: scale(1.1);
 }
 
 .add-to-cart-btn {
