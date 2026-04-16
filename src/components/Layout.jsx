@@ -77,7 +77,7 @@ const Layout = () => {
           <Link to="/" className="nav-link">Home</Link>
           <HashLink smooth to="/#story" className="nav-link">Our Story</HashLink>
           <HashLink smooth to="/#collection" className="nav-link">The Collection</HashLink>
-          <Link to="/branding" className="nav-link">Branding</Link>
+          <a href="https://branding-pippin-pals.vercel.app/" className="nav-link" target="_blank" rel="noopener noreferrer">Branding</a>
         </div>
 
         {/* Desktop Icons */}
@@ -155,7 +155,7 @@ const Layout = () => {
             <nav className="mobile-nav-links">
               <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>🏠 Home</Link>
               <HashLink smooth to="/#story" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>📖 Our Story</HashLink>
-              <Link to="/branding" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>🎨 Branding</Link>
+              <a href="https://branding-pippin-pals.vercel.app/" className="mobile-nav-link" target="_blank" rel="noopener noreferrer">🎨 Branding</a>
               <Link to="/favorites" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 💛 Wishlist {wishlistCount > 0 && <span className="mobile-wishlist-badge">{wishlistCount}</span>}
               </Link>
