@@ -14,8 +14,8 @@ import GirlsHugging from '../../Branding - Pippin & Pals_img/two-little-girls-hu
 import StickerLogo from '../../Branding - Pippin & Pals_img/Sticker logo pippin 1.png';
 import ClothingBag from '../../Branding - Pippin & Pals_img/clothing bag pippin 1.png';
 import TestimonialImg from '../../Branding - Pippin & Pals_img/Rectangle 30.png';
-import TestimonialImg2 from '../../Branding - Pippin & Pals_img/testimonial_2.png';
-import TestimonialImg3 from '../../Branding - Pippin & Pals_img/testimonial_3.png';
+import TestimonialImg2 from '../../Branding - Pippin & Pals_img/Rectangle 32.png';
+import TestimonialImg3 from '../../Branding - Pippin & Pals_img/Rectangle 33.png';
 import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit & sheep 1.png';
 import RabbitSheep2 from '../../Branding - Pippin & Pals_img/rabbit & sheep 2.png';
 import StampGraphic from '../../Branding - Pippin & Pals_illustration/organic-cotton-stamp.png';

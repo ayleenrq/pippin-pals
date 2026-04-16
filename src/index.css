@@ -4095,3 +4095,658 @@ h6,
     padding: 32px 24px;
   }
 }
+
+/* ================================================================ */
+/* STANDALONE BRANDING SLICE                                         */
+/* ================================================================ */
+.brand-site {
+  --brand-cream: #f8fce1;
+  --brand-orange: #e67c4f;
+  --brand-green: #d6e499;
+  --brand-yellow: #fff1a1;
+  --brand-pink: #ffc2c2;
+  --brand-ink: #482c1c;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--brand-cream);
+  color: var(--brand-ink);
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+}
+
+.brand-site img {
+  display: block;
+  max-width: 100%;
+}
+
+.brand-hero {
+  position: relative;
+  min-height: clamp(520px, 68vw, 900px);
+  display: grid;
+  place-items: center;
+  background: var(--brand-cream);
+}
+
+.brand-hero-logo {
+  position: relative;
+  z-index: 2;
+  width: clamp(180px, 24vw, 330px);
+  margin-top: -4vw;
+}
+
+.brand-hero-mark {
+  position: absolute;
+  opacity: 0.12;
+  filter: sepia(1) saturate(1.2) hue-rotate(335deg);
+}
+
+.brand-hero-mark-left {
+  left: -5%;
+  top: 8%;
+  width: clamp(380px, 48vw, 700px);
+}
+
+.brand-hero-mark-right {
+  right: 8%;
+  top: 18%;
+  width: clamp(260px, 34vw, 520px);
+}
+
+.brand-story {
+  padding: clamp(70px, 9vw, 145px) 8vw clamp(55px, 7vw, 100px);
+}
+
+.brand-copy {
+  max-width: 900px;
+  margin-bottom: clamp(80px, 12vw, 170px);
+}
+
+.brand-copy h1,
+.brand-logo-note h2,
+.brand-type h2,
+.brand-thank-you h2,
+.brand-thank-you h3 {
+  font-family: 'New Bread', cursive;
+  letter-spacing: 0;
+}
+
+.brand-copy h1 {
+  margin-bottom: 32px;
+  font-size: clamp(28px, 3.4vw, 46px);
+  color: var(--brand-ink);
+}
+
+.brand-copy p {
+  max-width: 920px;
+  font-size: clamp(16px, 1.45vw, 24px);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.brand-logo-row {
+  display: grid;
+  grid-template-columns: 0.78fr 1.35fr;
+  gap: clamp(60px, 10vw, 160px);
+  align-items: center;
+}
+
+.brand-pattern-card {
+  position: relative;
+  min-height: clamp(260px, 32vw, 420px);
+  display: grid;
+  place-items: center;
+}
+
+.brand-pattern-card > img:not(.brand-pattern-logo):not(.brand-pattern-type) {
+  position: absolute;
+  width: clamp(24px, 3vw, 42px);
+  opacity: 0.28;
+}
+
+.brand-pattern-card > img:nth-child(1) { left: 0; top: 0; }
+.brand-pattern-card > img:nth-child(2) { left: 50%; top: 0; }
+.brand-pattern-card > img:nth-child(3) { right: 0; top: 0; }
+.brand-pattern-card > img:nth-child(4) { left: 0; top: 45%; }
+.brand-pattern-card > img:nth-child(5) { right: 0; top: 45%; }
+.brand-pattern-card > img:nth-child(6) { left: 0; bottom: 0; }
+.brand-pattern-card > img:nth-child(7) { left: 50%; bottom: 0; }
+.brand-pattern-card > img:nth-child(8) { right: 0; bottom: 0; }
+
+.brand-pattern-logo {
+  position: relative;
+  z-index: 2;
+  width: clamp(180px, 20vw, 320px);
+}
+
+.brand-pattern-logo-stack {
+  width: clamp(160px, 18vw, 260px);
+}
+
+.brand-pattern-type {
+  position: relative;
+  z-index: 2;
+  width: clamp(160px, 18vw, 310px);
+  margin-left: -2vw;
+}
+
+.brand-pattern-card-wide {
+  grid-template-columns: auto auto;
+  gap: 3vw;
+}
+
+.brand-logo-note {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 52px;
+  padding: clamp(60px, 8vw, 95px) 8vw;
+  background: var(--brand-pink);
+  align-items: center;
+}
+
+.brand-note-icons {
+  display: grid;
+  gap: 22px;
+}
+
+.brand-note-icons figure {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  margin: 0;
+}
+
+.brand-note-icons figure img {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  padding: 12px;
+  border: 2px solid var(--brand-ink);
+  border-radius: 8px;
+  background: var(--brand-yellow);
+}
+
+.brand-note-icons figure:nth-child(2) img { background: var(--brand-cream); }
+.brand-note-icons figure:nth-child(3) img { background: var(--brand-yellow); }
+
+.brand-note-icons figcaption {
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.brand-logo-note article {
+  padding: clamp(35px, 5vw, 64px);
+  border: 2px solid var(--brand-ink);
+  border-radius: 8px;
+  background: var(--brand-cream);
+}
+
+.brand-logo-note h2 {
+  margin-bottom: 28px;
+  font-size: clamp(34px, 4vw, 56px);
+}
+
+.brand-logo-note p {
+  max-width: 960px;
+  font-size: clamp(15px, 1.25vw, 21px);
+  line-height: 1.45;
+}
+
+.brand-logo-note p + p {
+  margin-top: 26px;
+}
+
+.brand-logo-system {
+  padding: clamp(60px, 7vw, 110px) 8vw;
+}
+
+.brand-lockup-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(48px, 10vw, 150px);
+  align-items: center;
+  margin-bottom: clamp(80px, 10vw, 140px);
+}
+
+.brand-lockup-row img {
+  width: 100%;
+  max-height: 190px;
+  object-fit: contain;
+}
+
+.brand-mark-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.brand-mark-grid div {
+  aspect-ratio: 1.15;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+}
+
+.brand-mark-grid div:nth-child(1) { background: transparent; }
+.brand-mark-grid .is-orange { background: var(--brand-orange); }
+.brand-mark-grid .is-apricot { background: #e37b4a; }
+.brand-mark-grid .is-charcoal { background: #181818; }
+.brand-mark-grid .is-green { background: var(--brand-green); }
+.brand-mark-grid .is-pink { background: var(--brand-pink); }
+
+.brand-mark-grid img {
+  width: 72%;
+}
+
+.brand-mark-grid .is-orange img,
+.brand-mark-grid .is-apricot img,
+.brand-mark-grid .is-charcoal img,
+.brand-mark-grid .is-green img,
+.brand-mark-grid .is-pink img {
+  filter: brightness(0) invert(1);
+}
+
+.brand-colors {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.brand-color {
+  min-height: clamp(210px, 21vw, 310px);
+  padding: clamp(24px, 3vw, 42px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand-color h3 {
+  max-width: 150px;
+  font-family: 'New Bread', cursive;
+  color: var(--brand-orange);
+  font-size: clamp(18px, 1.8vw, 30px);
+  line-height: 1.04;
+}
+
+.brand-color:first-child h3,
+.brand-color:first-child p,
+.brand-color:first-child span {
+  color: var(--brand-cream);
+}
+
+.brand-color p,
+.brand-color span {
+  color: var(--brand-orange);
+  font-size: clamp(10px, 0.8vw, 14px);
+  font-weight: 700;
+}
+
+.brand-type {
+  padding: clamp(58px, 7vw, 105px) 8vw;
+}
+
+.brand-type-display {
+  background: var(--brand-orange);
+  color: var(--brand-cream);
+}
+
+.brand-type-body {
+  background: var(--brand-green);
+  color: var(--brand-orange);
+}
+
+.brand-type-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.brand-type-heading h2 {
+  font-size: clamp(24px, 2.8vw, 42px);
+}
+
+.brand-type-heading span {
+  font-size: clamp(13px, 1.15vw, 20px);
+  font-weight: 700;
+}
+
+.brand-type strong {
+  display: block;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.brand-type-display strong {
+  font-family: 'New Bread', cursive;
+  font-size: clamp(76px, 13vw, 190px);
+}
+
+.brand-type-body strong {
+  font-family: 'Quicksand', sans-serif;
+  font-size: clamp(70px, 12vw, 180px);
+  font-weight: 500;
+  text-align: right;
+}
+
+.brand-type p {
+  margin-top: 22px;
+  font-size: clamp(11px, 1.1vw, 18px);
+  overflow-wrap: anywhere;
+}
+
+.brand-apparel,
+.brand-product-grid,
+.brand-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.brand-apparel {
+  background: var(--brand-yellow);
+}
+
+.brand-apparel img,
+.brand-product-grid img,
+.brand-photo-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-apparel img {
+  min-height: clamp(540px, 70vw, 900px);
+}
+
+.brand-product-grid img {
+  min-height: clamp(360px, 38vw, 550px);
+}
+
+.brand-embroidery img,
+.brand-boxes img,
+.brand-billboard img,
+.brand-field > img {
+  width: 100%;
+}
+
+.brand-embroidery {
+  background: #dfe2cf;
+}
+
+.brand-embroidery img {
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.brand-boxes {
+  background: #b2c36d;
+}
+
+.brand-icon-strip {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 8px;
+  padding: 24px 18px;
+  background: var(--brand-cream);
+}
+
+.brand-icon-strip img {
+  width: 100%;
+  border: 2px solid var(--brand-orange);
+  border-radius: 6px;
+}
+
+.brand-thank-you {
+  position: relative;
+  min-height: clamp(460px, 50vw, 760px);
+  padding: clamp(80px, 10vw, 145px) 7vw;
+  background: var(--brand-pink);
+}
+
+.brand-card {
+  position: absolute;
+  width: clamp(300px, 39vw, 620px);
+  min-height: clamp(190px, 21vw, 310px);
+  padding: clamp(30px, 4vw, 58px);
+  border-radius: 8px;
+  background: var(--brand-cream);
+  box-shadow: 0 18px 38px rgba(72, 44, 28, 0.16);
+}
+
+.brand-card-front {
+  left: 7vw;
+  top: 18%;
+  transform: rotate(-7deg);
+}
+
+.brand-card-back {
+  right: 7vw;
+  top: 37%;
+  transform: rotate(6deg);
+}
+
+.brand-card-front img {
+  width: 70px;
+  margin: 0 auto 16px;
+}
+
+.brand-card h2 {
+  color: var(--brand-orange);
+  font-size: clamp(38px, 5vw, 80px);
+  line-height: 0.92;
+}
+
+.brand-card h3 {
+  margin-bottom: 16px;
+  color: var(--brand-orange);
+  font-size: clamp(22px, 2.2vw, 36px);
+}
+
+.brand-card p {
+  color: var(--brand-orange);
+  font-size: clamp(12px, 1vw, 16px);
+  line-height: 1.5;
+}
+
+.brand-card strong {
+  display: block;
+  margin-top: 20px;
+  color: var(--brand-orange);
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+.brand-card-mascot {
+  position: absolute;
+  width: clamp(70px, 10vw, 135px);
+  opacity: 0.75;
+}
+
+.brand-card-mascot-left {
+  left: 10vw;
+  bottom: 17%;
+}
+
+.brand-card-mascot-right {
+  right: 12vw;
+  top: 27%;
+}
+
+.brand-billboard {
+  background: #6eb6de;
+}
+
+.brand-field {
+  position: relative;
+  background: #56763d;
+}
+
+.brand-field > img:first-child {
+  max-height: 760px;
+  object-fit: cover;
+  filter: brightness(0.72) saturate(0.9);
+}
+
+.brand-field-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(180px, 25vw, 360px);
+  transform: translate(-50%, -50%);
+  filter: brightness(0) invert(1);
+}
+
+.brand-shopping {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(420px, 48vw, 680px);
+  background: var(--brand-pink);
+  overflow: hidden;
+}
+
+.brand-shopping > img:not(.brand-shopping-bg-left):not(.brand-shopping-bg-right) {
+  position: relative;
+  z-index: 2;
+  width: min(64vw, 900px);
+}
+
+.brand-shopping-bg-left,
+.brand-shopping-bg-right {
+  position: absolute;
+  width: clamp(240px, 26vw, 430px);
+  opacity: 0.18;
+}
+
+.brand-shopping-bg-left {
+  left: -4%;
+  top: 21%;
+}
+
+.brand-shopping-bg-right {
+  right: -4%;
+  top: 17%;
+}
+
+.brand-photo-grid img {
+  min-height: clamp(340px, 38vw, 560px);
+}
+
+.brand-end {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  place-items: center;
+  gap: clamp(34px, 7vw, 110px);
+  min-height: clamp(520px, 60vw, 780px);
+  padding: 7vw 8vw;
+  background: var(--brand-cream);
+}
+
+.brand-end img {
+  width: clamp(190px, 26vw, 430px);
+  opacity: 0.25;
+}
+
+.brand-end div {
+  width: clamp(220px, 28vw, 360px);
+  aspect-ratio: 0.66;
+  border-radius: 24px;
+  background: #000;
+}
+
+@media (max-width: 820px) {
+  .brand-logo-row,
+  .brand-logo-note,
+  .brand-lockup-row,
+  .brand-mark-grid,
+  .brand-colors,
+  .brand-apparel,
+  .brand-product-grid,
+  .brand-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-hero {
+    min-height: 440px;
+  }
+
+  .brand-story {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .brand-copy {
+    margin-bottom: 70px;
+  }
+
+  .brand-logo-row {
+    gap: 56px;
+  }
+
+  .brand-pattern-card-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-logo-note {
+    padding: 48px 24px;
+    gap: 28px;
+  }
+
+  .brand-note-icons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .brand-note-icons figure img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .brand-logo-system,
+  .brand-type {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .brand-color {
+    min-height: 180px;
+  }
+
+  .brand-type-heading,
+  .brand-type-body strong {
+    text-align: left;
+  }
+
+  .brand-apparel img,
+  .brand-product-grid img,
+  .brand-photo-grid img {
+    min-height: auto;
+  }
+
+  .brand-icon-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .brand-thank-you {
+    min-height: 650px;
+  }
+
+  .brand-card {
+    width: 72vw;
+  }
+
+  .brand-card-front {
+    left: 8vw;
+  }
+
+  .brand-card-back {
+    right: 8vw;
+    top: 48%;
+  }
+
+  .brand-shopping > img:not(.brand-shopping-bg-left):not(.brand-shopping-bg-right) {
+    width: 88vw;
+  }
+
+  .brand-end {
+    grid-template-columns: 1fr;
+  }
+}

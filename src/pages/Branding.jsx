@@ -524,7 +524,11 @@ const Branding = () => {
       {/* ── BRAND ASSETS CTA ── */}
       <section className="branding-section bg-orange no-pad-bottom" ref={assetsRef}>
         <div className={`branding-assets-cta reveal-scale${assetsVis ? ' is-visible' : ''}`}>
-          <img src={PrimaryLogo} alt="Pippin & Pals" className="branding-assets-logo invert-logo" />
+          <div style={{ position: 'relative', display: 'inline-block', height: '180px', marginBottom: '32px' }}>
+            <img src={PrimaryLogo} style={{ height: '180px', visibility: 'hidden' }} alt="" />
+            <img src={PrimaryLogo} style={{ position: 'absolute', top: 0, left: 0, height: '100%', clipPath: 'inset(0 0 32% 0)' }} alt="Pippin & Pals Mascot" />
+            <img src={PrimaryLogo} className="invert-logo" style={{ position: 'absolute', top: 0, left: 0, height: '100%', clipPath: 'inset(68% 0 0 0)' }} alt="Pippin & Pals Text" />
+          </div>
           <h2 className="branding-assets-title">A Brand Built on Joy</h2>
           <p className="branding-assets-desc">
             Every colour, character, and curve in the Pippin &amp; Pals identity is designed to spark the warmth of childhood — for the little ones who wear it and the families who love them.
