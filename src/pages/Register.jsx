@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 // Importing assets
-import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
-import RabbitSheep2 from '../../Branding - Pippin & Pals_img/rabbit & sheep 2.png';
+import Vector1 from '../assets/svg/decorative-hook.svg';
+import RabbitSheep2 from '../../Branding - Pippin & Pals_img/sheep-mascot.webp';
 
 const Register = () => {
   const [name, setName] = useState('');

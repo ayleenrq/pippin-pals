@@ -1,9 +1,9 @@
-import Prod1 from '../../Branding - Pippin & Pals_img/Rectangle 29.png';
-import Prod2 from '../../Branding - Pippin & Pals_img/Rectangle 29-1.png';
-import Prod3 from '../../Branding - Pippin & Pals_img/Rectangle 29-2.png';
-import Prod4 from '../../Branding - Pippin & Pals_img/Rectangle 29-3.png';
-import Prod5 from '../../Branding - Pippin & Pals_img/Rectangle 29-4.png';
-import Prod6 from '../../Branding - Pippin & Pals_img/Rectangle 29-5.png';
+import Prod1 from '../../Branding - Pippin & Pals_img/product-polo-shirt.webp';
+import Prod2 from '../../Branding - Pippin & Pals_img/product-yellow-shorts.webp';
+import Prod3 from '../../Branding - Pippin & Pals_img/product-orange-cap.webp';
+import Prod4 from '../../Branding - Pippin & Pals_img/product-socks-set.webp';
+import Prod5 from '../../Branding - Pippin & Pals_img/product-rabbit-sweater.webp';
+import Prod6 from '../../Branding - Pippin & Pals_img/product-cream-dress.webp';
 
 export const products = [
   { 

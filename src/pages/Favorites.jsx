@@ -7,9 +7,9 @@ import { toast } from 'sonner';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
-import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
+import Vector1 from '../assets/svg/decorative-hook.svg';
 import HeartFilled from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
-import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit & sheep 1.png';
+import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit-mascot.webp';
 
 const Favorites = () => {
   const { products, isLoading } = useProducts();

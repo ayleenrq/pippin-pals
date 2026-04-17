@@ -7,7 +7,7 @@ import { toast } from 'sonner';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
-import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
+import Vector1 from '../assets/svg/decorative-hook.svg';
 import HeartIcon from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
 
 // Helper functions removed as color swatches are now text-based.

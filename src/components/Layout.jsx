@@ -11,11 +11,11 @@ import UserIcon from '../../Branding - Pippin & Pals_icon/user_3_regular.svg';
 import HeartIcon from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
 import FooterVectorLeft from '../../Branding - Pippin & Pals_illustration/Vector.svg';
 import FooterVectorRight from '../../Branding - Pippin & Pals_illustration/Vector (1).svg';
-import Social1 from '../../Branding - Pippin & Pals_img/sosial-media/social_x_regular.png';
-import Social2 from '../../Branding - Pippin & Pals_img/sosial-media/social_x_regular (1).png';
-import Social3 from '../../Branding - Pippin & Pals_img/sosial-media/social_x_regular (2).png';
-import Social4 from '../../Branding - Pippin & Pals_img/sosial-media/social_x_regular (3).png';
-import Social5 from '../../Branding - Pippin & Pals_img/sosial-media/social_x_regular (4).png';
+import Social1 from '../assets/svg/social-x.svg';
+import Social2 from '../assets/svg/social-instagram.svg';
+import Social3 from '../assets/svg/social-facebook.svg';
+import Social4 from '../assets/svg/social-tiktok.svg';
+import Social5 from '../assets/svg/social-pinterest.svg';
 import { useSearchStore } from '../store/searchStore';
 
 const Layout = () => {

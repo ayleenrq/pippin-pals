@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-import Vector1 from '../../Branding - Pippin & Pals_illustration/vector-1.png';
-import ClothingBag from '../../Branding - Pippin & Pals_img/clothing bag pippin 1.png';
+import Vector1 from '../assets/svg/decorative-hook.svg';
+import ClothingBag from '../../Branding - Pippin & Pals_img/clothing-bag-mockup.webp';
 
 const Profile = () => {
   const { user, logout, isLoggedIn } = useAuth();
