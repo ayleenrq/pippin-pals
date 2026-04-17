@@ -8,8 +8,8 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
 import Vector1 from '../assets/svg/decorative-hook.svg';
-import HeartFilled from '../../Branding - Pippin & Pals_icon/heart-regular.svg';
-import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit-mascot.webp';
+import HeartFilled from '../assets/branding/icons/heart-regular.svg';
+import RabbitSheep from '../assets/branding/images/rabbit-mascot.webp';
 
 const Favorites = () => {
   const { products, isLoading } = useProducts();

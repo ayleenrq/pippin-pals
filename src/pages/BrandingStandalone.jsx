@@ -1,37 +1,37 @@
 import React from 'react';
 
-import PrimaryLogo from '../../Branding - Pippin & Pals_icon - 2/primary-logo.svg';
-import Logotype from '../../Branding - Pippin & Pals_icon - 2/logotype.svg';
-import MascotLogo from '../../Branding - Pippin & Pals_icon - 2/mascot-logo.svg';
-import PIcon from '../../Branding - Pippin & Pals_icon - 2/p.svg';
-import Group25 from '../../Branding - Pippin & Pals_icon - 2/group-25.svg';
-import Group26 from '../../Branding - Pippin & Pals_icon - 2/group-26.svg';
-import Group27 from '../../Branding - Pippin & Pals_icon - 2/group-27.svg';
-import Group25Alt from '../../Branding - Pippin & Pals_icon - 2/group-25-1.svg';
-import Group27Alt from '../../Branding - Pippin & Pals_icon - 2/group-27-1.svg';
+import PrimaryLogo from '../assets/branding/icons-2/primary-logo.svg';
+import Logotype from '../assets/branding/icons-2/logotype.svg';
+import MascotLogo from '../assets/branding/icons-2/mascot-logo.svg';
+import PIcon from '../assets/branding/icons-2/p.svg';
+import Group25 from '../assets/branding/icons-2/group-25.svg';
+import Group26 from '../assets/branding/icons-2/group-26.svg';
+import Group27 from '../assets/branding/icons-2/group-27.svg';
+import Group25Alt from '../assets/branding/icons-2/group-25-1.svg';
+import Group27Alt from '../assets/branding/icons-2/group-27-1.svg';
 
-import OrganicStamp from '../../Branding - Pippin & Pals_illustration/organic-cotton-stamp.png';
-import OrganicStampStory from '../../Branding - Pippin & Pals_illustration/organic-cotton-stamp-story.png';
+import OrganicStamp from '../assets/branding/illustrations/100-organic-cotton-100-organic-cotton-100-organic-cotton.svg';
+import OrganicStampStory from '../assets/branding/illustrations/100-organic-cotton-100-organic-cotton-100-organic-cotton.svg';
 
-import DressGirl from '../../Branding - Pippin & Pals_img - 2/brand-dress-girl.webp';
-import BoySet from '../../Branding - Pippin & Pals_img - 2/brand-boy-outfit.webp';
-import DrawstringBag from '../../Branding - Pippin & Pals_img - 2/drawstring-bag-mockup.webp';
-import StickerPattern from '../../Branding - Pippin & Pals_img - 2/sticker-pattern-mockup.webp';
-import Embroidery from '../../Branding - Pippin & Pals_img - 2/embroidered-logo-closeup.webp';
-import BoxMockup from '../../Branding - Pippin & Pals_img - 2/clothing-bag-mockup.webp';
-import IconTileA from '../../Branding - Pippin & Pals_img - 2/product-polo-shirt.webp';
-import IconTileB from '../../Branding - Pippin & Pals_img - 2/product-yellow-shorts.webp';
-import IconTileC from '../../Branding - Pippin & Pals_img - 2/product-orange-cap.webp';
-import IconTileD from '../../Branding - Pippin & Pals_img - 2/product-socks-set.webp';
-import IconTileE from '../../Branding - Pippin & Pals_img - 2/product-rabbit-sweater.webp';
-import IconTileF from '../../Branding - Pippin & Pals_img - 2/product-cream-dress.webp';
-import Billboard from '../../Branding - Pippin & Pals_img - 2/billboard-mockup.webp';
-import ChildrenRabbit from '../../Branding - Pippin & Pals_img - 2/child-with-rabbit.webp';
-import ShoppingBag from '../../Branding - Pippin & Pals_img - 2/shopping-bag-mockup.webp';
-import SweaterGirl from '../../Branding - Pippin & Pals_img - 2/sweater-girl.webp';
-import HangTag from '../../Branding - Pippin & Pals_img - 2/hang-tag-mockup.webp';
-import ClothingLabel from '../../Branding - Pippin & Pals_img - 2/clothing-label-mockup.webp';
-import PoloBoy from '../../Branding - Pippin & Pals_img - 2/polo-boy.webp';
+import DressGirl from '../assets/branding/images-2/brand-dress-girl.webp';
+import BoySet from '../assets/branding/images-2/brand-boy-outfit.webp';
+import DrawstringBag from '../assets/branding/images-2/drawstring-bag-mockup.webp';
+import StickerPattern from '../assets/branding/images-2/sticker-pattern-mockup.webp';
+import Embroidery from '../assets/branding/images-2/embroidered-logo-closeup.webp';
+import BoxMockup from '../assets/branding/images-2/clothing-bag-mockup.webp';
+import IconTileA from '../assets/branding/images-2/product-polo-shirt.webp';
+import IconTileB from '../assets/branding/images-2/product-yellow-shorts.webp';
+import IconTileC from '../assets/branding/images-2/product-orange-cap.webp';
+import IconTileD from '../assets/branding/images-2/product-socks-set.webp';
+import IconTileE from '../assets/branding/images-2/product-rabbit-sweater.webp';
+import IconTileF from '../assets/branding/images-2/product-cream-dress.webp';
+import Billboard from '../assets/branding/images-2/billboard-mockup.webp';
+import ChildrenRabbit from '../assets/branding/images-2/child-with-rabbit.webp';
+import ShoppingBag from '../assets/branding/images-2/shopping-bag-mockup.webp';
+import SweaterGirl from '../assets/branding/images-2/sweater-girl.webp';
+import HangTag from '../assets/branding/images-2/hang-tag-mockup.webp';
+import ClothingLabel from '../assets/branding/images-2/clothing-label-mockup.webp';
+import PoloBoy from '../assets/branding/images-2/polo-boy.webp';
 
 const logoWatermarks = Array.from({ length: 8 });
 

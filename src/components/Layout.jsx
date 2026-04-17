@@ -5,12 +5,12 @@ import { useAuth } from '../context/AuthContext';
 import { useWishlist } from '../hooks/useWishlist';
 
 // Importing assets
-import PrimaryLogo from '../../Branding - Pippin & Pals_icon/primary-logo.svg';
-import SearchIcon from '../../Branding - Pippin & Pals_icon/search-regular.svg';
-import UserIcon from '../../Branding - Pippin & Pals_icon/user-3-regular.svg';
-import HeartIcon from '../../Branding - Pippin & Pals_icon/heart-regular.svg';
-import FooterVectorLeft from '../../Branding - Pippin & Pals_illustration/vector.svg';
-import FooterVectorRight from '../../Branding - Pippin & Pals_illustration/vector-1.svg';
+import PrimaryLogo from '../assets/branding/icons/primary-logo.svg';
+import SearchIcon from '../assets/branding/icons/search-regular.svg';
+import UserIcon from '../assets/branding/icons/user-3-regular.svg';
+import HeartIcon from '../assets/branding/icons/heart-regular.svg';
+import FooterVectorLeft from '../assets/branding/illustrations/vector.svg';
+import FooterVectorRight from '../assets/branding/illustrations/vector-1.svg';
 import Social1 from '../assets/svg/social-x.svg';
 import Social2 from '../assets/svg/social-instagram.svg';
 import Social3 from '../assets/svg/social-facebook.svg';

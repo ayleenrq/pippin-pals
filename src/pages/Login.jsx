@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 // Importing assets
 import Vector1 from '../assets/svg/decorative-hook.svg';
-import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit-mascot.webp';
+import RabbitSheep from '../assets/branding/images/rabbit-mascot.webp';
 
 const Login = () => {
   const [email, setEmail] = useState('');

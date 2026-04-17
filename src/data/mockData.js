@@ -1,9 +1,9 @@
-import Prod1 from '../../Branding - Pippin & Pals_img/product-polo-shirt.webp';
-import Prod2 from '../../Branding - Pippin & Pals_img/product-yellow-shorts.webp';
-import Prod3 from '../../Branding - Pippin & Pals_img/product-orange-cap.webp';
-import Prod4 from '../../Branding - Pippin & Pals_img/product-socks-set.webp';
-import Prod5 from '../../Branding - Pippin & Pals_img/product-rabbit-sweater.webp';
-import Prod6 from '../../Branding - Pippin & Pals_img/product-cream-dress.webp';
+import Prod1 from '../assets/branding/images/product-polo-shirt.webp';
+import Prod2 from '../assets/branding/images/product-yellow-shorts.webp';
+import Prod3 from '../assets/branding/images/product-orange-cap.webp';
+import Prod4 from '../assets/branding/images/product-socks-set.webp';
+import Prod5 from '../assets/branding/images/product-rabbit-sweater.webp';
+import Prod6 from '../assets/branding/images/product-cream-dress.webp';
 
 export const products = [
   { 

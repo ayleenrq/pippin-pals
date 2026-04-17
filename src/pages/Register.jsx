@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 // Importing assets
 import Vector1 from '../assets/svg/decorative-hook.svg';
-import RabbitSheep2 from '../../Branding - Pippin & Pals_img/sheep-mascot.webp';
+import RabbitSheep2 from '../assets/branding/images/sheep-mascot.webp';
 
 const Register = () => {
   const [name, setName] = useState('');

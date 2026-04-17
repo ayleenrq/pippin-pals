@@ -8,7 +8,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
 import Vector1 from '../assets/svg/decorative-hook.svg';
-import HeartIcon from '../../Branding - Pippin & Pals_icon/heart-regular.svg';
+import HeartIcon from '../assets/branding/icons/heart-regular.svg';
 
 // Helper functions removed as color swatches are now text-based.
 

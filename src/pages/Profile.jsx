@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 import Vector1 from '../assets/svg/decorative-hook.svg';
-import ClothingBag from '../../Branding - Pippin & Pals_img/clothing-bag-mockup.webp';
+import ClothingBag from '../assets/branding/images/clothing-bag-mockup.webp';
 
 const Profile = () => {
   const { user, logout, isLoggedIn } = useAuth();
