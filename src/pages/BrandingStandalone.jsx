@@ -1,14 +1,14 @@
 import React from 'react';
 
-import PrimaryLogo from '../../Branding - Pippin & Pals_icon - 2/Primary Logo.svg';
-import Logotype from '../../Branding - Pippin & Pals_icon - 2/Logotype.svg';
-import MascotLogo from '../../Branding - Pippin & Pals_icon - 2/Mascot Logo.svg';
-import PIcon from '../../Branding - Pippin & Pals_icon - 2/P.svg';
-import Group25 from '../../Branding - Pippin & Pals_icon - 2/Group 25.svg';
-import Group26 from '../../Branding - Pippin & Pals_icon - 2/Group 26.svg';
-import Group27 from '../../Branding - Pippin & Pals_icon - 2/Group 27.svg';
-import Group25Alt from '../../Branding - Pippin & Pals_icon - 2/Group 25-1.svg';
-import Group27Alt from '../../Branding - Pippin & Pals_icon - 2/Group 27-1.svg';
+import PrimaryLogo from '../../Branding - Pippin & Pals_icon - 2/primary-logo.svg';
+import Logotype from '../../Branding - Pippin & Pals_icon - 2/logotype.svg';
+import MascotLogo from '../../Branding - Pippin & Pals_icon - 2/mascot-logo.svg';
+import PIcon from '../../Branding - Pippin & Pals_icon - 2/p.svg';
+import Group25 from '../../Branding - Pippin & Pals_icon - 2/group-25.svg';
+import Group26 from '../../Branding - Pippin & Pals_icon - 2/group-26.svg';
+import Group27 from '../../Branding - Pippin & Pals_icon - 2/group-27.svg';
+import Group25Alt from '../../Branding - Pippin & Pals_icon - 2/group-25-1.svg';
+import Group27Alt from '../../Branding - Pippin & Pals_icon - 2/group-27-1.svg';
 
 import OrganicStamp from '../../Branding - Pippin & Pals_illustration/organic-cotton-stamp.png';
 import OrganicStampStory from '../../Branding - Pippin & Pals_illustration/organic-cotton-stamp-story.png';
@@ -50,12 +50,12 @@ const BrandingStandalone = () => {
     <main className="brand-site" aria-label="Pippin and Pals branding page">
       <section className="brand-hero">
         <div className="brand-hero-mark brand-hero-mark-left">
-          <img src={Group25Alt} alt="" />
+          <img src={Group25Alt} alt="" loading="eager" />
         </div>
         <div className="brand-hero-mark brand-hero-mark-right">
-          <img src={Group27Alt} alt="" />
+          <img src={Group27Alt} alt="" loading="eager" />
         </div>
-        <img className="brand-hero-logo" src={PrimaryLogo} alt="Pippin & Pals" />
+        <img className="brand-hero-logo" src={PrimaryLogo} alt="Pippin & Pals" loading="eager" fetchPriority="high" />
       </section>
 
       <section className="brand-story">
@@ -69,13 +69,13 @@ const BrandingStandalone = () => {
         </div>
         <div className="brand-logo-row">
           <div className="brand-pattern-card">
-            {logoWatermarks.map((_, index) => <img key={index} src={PIcon} alt="" />)}
-            <img className="brand-pattern-logo brand-pattern-logo-stack" src={PrimaryLogo} alt="Pippin & Pals primary logo" />
+            {logoWatermarks.map((_, index) => <img key={index} src={PIcon} alt="" loading="lazy" />)}
+            <img className="brand-pattern-logo brand-pattern-logo-stack" src={PrimaryLogo} alt="Pippin & Pals primary logo" loading="lazy" />
           </div>
           <div className="brand-pattern-card brand-pattern-card-wide">
-            {logoWatermarks.map((_, index) => <img key={index} src={PIcon} alt="" />)}
-            <img className="brand-pattern-logo" src={MascotLogo} alt="Pippin & Pals mascot logo" />
-            <img className="brand-pattern-type" src={Logotype} alt="Pippin & Pals logotype" />
+            {logoWatermarks.map((_, index) => <img key={index} src={PIcon} alt="" loading="lazy" />)}
+            <img className="brand-pattern-logo" src={MascotLogo} alt="Pippin & Pals mascot logo" loading="lazy" />
+            <img className="brand-pattern-type" src={Logotype} alt="Pippin & Pals logotype" loading="lazy" />
           </div>
         </div>
       </section>
@@ -83,15 +83,15 @@ const BrandingStandalone = () => {
       <section className="brand-logo-note">
         <div className="brand-note-icons">
           <figure>
-            <img src={OrganicStampStory} alt="" />
+            <img src={OrganicStampStory} alt="" loading="lazy" />
             <figcaption>Organic Cotton</figcaption>
           </figure>
           <figure>
-            <img src={Group25} alt="" />
+            <img src={Group25} alt="" loading="lazy" />
             <figcaption>Soft / Huggable</figcaption>
           </figure>
           <figure>
-            <img src={Group27} alt="" />
+            <img src={Group27} alt="" loading="lazy" />
             <figcaption>Playful / Cheerful</figcaption>
           </figure>
         </div>
@@ -113,17 +113,17 @@ const BrandingStandalone = () => {
 
       <section className="brand-logo-system">
         <div className="brand-lockup-row">
-          <img src={PrimaryLogo} alt="Primary logo" />
-          <img src={MascotLogo} alt="Mascot lockup" />
-          <img src={Logotype} alt="Wordmark lockup" />
+          <img src={PrimaryLogo} alt="Primary logo" loading="lazy" />
+          <img src={MascotLogo} alt="Mascot lockup" loading="lazy" />
+          <img src={Logotype} alt="Wordmark lockup" loading="lazy" />
         </div>
         <div className="brand-mark-grid">
-          <div><img src={MascotLogo} alt="" /></div>
-          <div className="is-orange"><img src={MascotLogo} alt="" /></div>
-          <div className="is-apricot"><img src={MascotLogo} alt="" /></div>
-          <div className="is-charcoal"><img src={MascotLogo} alt="" /></div>
-          <div className="is-green"><img src={MascotLogo} alt="" /></div>
-          <div className="is-pink"><img src={MascotLogo} alt="" /></div>
+          <div><img src={MascotLogo} alt="" loading="lazy" /></div>
+          <div className="is-orange"><img src={MascotLogo} alt="" loading="lazy" /></div>
+          <div className="is-apricot"><img src={MascotLogo} alt="" loading="lazy" /></div>
+          <div className="is-charcoal"><img src={MascotLogo} alt="" loading="lazy" /></div>
+          <div className="is-green"><img src={MascotLogo} alt="" loading="lazy" /></div>
+          <div className="is-pink"><img src={MascotLogo} alt="" loading="lazy" /></div>
         </div>
       </section>
 
@@ -156,34 +156,34 @@ const BrandingStandalone = () => {
       </section>
 
       <section className="brand-apparel">
-        <img src={DressGirl} alt="Girl wearing Pippin & Pals dress" />
-        <img src={BoySet} alt="Boy wearing Pippin & Pals top" />
+        <img src={DressGirl} alt="Girl wearing Pippin & Pals dress" loading="lazy" />
+        <img src={BoySet} alt="Boy wearing Pippin & Pals top" loading="lazy" />
       </section>
 
       <section className="brand-product-grid">
-        <img src={DrawstringBag} alt="Pippin & Pals drawstring bag" />
-        <img src={StickerPattern} alt="Pippin & Pals sticker pattern" />
+        <img src={DrawstringBag} alt="Pippin & Pals drawstring bag" loading="lazy" />
+        <img src={StickerPattern} alt="Pippin & Pals sticker pattern" loading="lazy" />
       </section>
 
       <section className="brand-embroidery">
-        <img src={Embroidery} alt="Embroidered Pippin & Pals mark" />
+        <img src={Embroidery} alt="Embroidered Pippin & Pals mark" loading="lazy" />
       </section>
 
       <section className="brand-boxes">
-        <img src={BoxMockup} alt="Pippin & Pals packaging mockup" />
+        <img src={BoxMockup} alt="Pippin & Pals packaging mockup" loading="lazy" />
       </section>
 
       <section className="brand-icon-strip" aria-label="Mascot icon tiles">
-        {iconTiles.map((tile, index) => <img key={`${tile}-${index}`} src={tile} alt="" />)}
+        {iconTiles.map((tile, index) => <img key={`${tile}-${index}`} src={tile} alt="" loading="lazy" />)}
       </section>
 
       <section className="brand-thank-you">
         <div className="brand-card brand-card-front">
-          <img src={PrimaryLogo} alt="" />
+          <img src={PrimaryLogo} alt="" loading="lazy" />
           <h2>Thank<br />you</h2>
         </div>
         <div className="brand-card brand-card-back">
-          <img src={Group26} alt="" />
+          <img src={Group26} alt="" loading="lazy" />
           <h3>A Little Hug Inside!</h3>
           <p>
             Hi! I&apos;m Pippin. Every piece was made with soft organic cotton and tiny details
@@ -191,36 +191,36 @@ const BrandingStandalone = () => {
           </p>
           <strong>With love,<br />Pippin&amp;Pals</strong>
         </div>
-        <img className="brand-card-mascot brand-card-mascot-left" src={Group27} alt="" />
-        <img className="brand-card-mascot brand-card-mascot-right" src={OrganicStamp} alt="" />
+        <img className="brand-card-mascot brand-card-mascot-left" src={Group27} alt="" loading="lazy" />
+        <img className="brand-card-mascot brand-card-mascot-right" src={OrganicStamp} alt="" loading="lazy" />
       </section>
 
       <section className="brand-billboard">
-        <img src={Billboard} alt="Pippin & Pals billboard mockup" />
+        <img src={Billboard} alt="Pippin & Pals billboard mockup" loading="lazy" />
       </section>
 
       <section className="brand-field">
-        <img src={ChildrenRabbit} alt="Child sitting with a rabbit" />
-        <img className="brand-field-logo" src={Logotype} alt="Pippin & Pals" />
+        <img src={ChildrenRabbit} alt="Child sitting with a rabbit" loading="lazy" />
+        <img className="brand-field-logo" src={Logotype} alt="Pippin & Pals" loading="lazy" />
       </section>
 
       <section className="brand-shopping">
-        <img className="brand-shopping-bg-left" src={Group25Alt} alt="" />
-        <img className="brand-shopping-bg-right" src={Group27Alt} alt="" />
-        <img src={ShoppingBag} alt="Pippin & Pals shopping bags" />
+        <img className="brand-shopping-bg-left" src={Group25Alt} alt="" loading="lazy" />
+        <img className="brand-shopping-bg-right" src={Group27Alt} alt="" loading="lazy" />
+        <img src={ShoppingBag} alt="Pippin & Pals shopping bags" loading="lazy" />
       </section>
 
       <section className="brand-photo-grid">
-        <img src={SweaterGirl} alt="Girl wearing a Pippin & Pals sweater" />
-        <img src={HangTag} alt="Pippin & Pals clothing hang tag" />
-        <img src={ClothingLabel} alt="Pippin & Pals clothing label" />
-        <img src={PoloBoy} alt="Boy wearing a Pippin & Pals polo" />
+        <img src={SweaterGirl} alt="Girl wearing a Pippin & Pals sweater" loading="lazy" />
+        <img src={HangTag} alt="Pippin & Pals clothing hang tag" loading="lazy" />
+        <img src={ClothingLabel} alt="Pippin & Pals clothing label" loading="lazy" />
+        <img src={PoloBoy} alt="Boy wearing a Pippin & Pals polo" loading="lazy" />
       </section>
 
       <section className="brand-end">
-        <img src={Group25Alt} alt="" />
+        <img src={Group25Alt} alt="" loading="lazy" />
         <div aria-hidden="true" />
-        <img src={Group27Alt} alt="" />
+        <img src={Group27Alt} alt="" loading="lazy" />
       </section>
     </main>
   );

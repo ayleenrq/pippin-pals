@@ -50,10 +50,10 @@ const Register = () => {
     <div className="auth-page">
       <div className="auth-card auth-card-pink">
         {/* Mascot decor */}
-        <img src={RabbitSheep2} alt="Mascot" className="auth-mascot auth-mascot-sm" />
+        <img src={RabbitSheep2} alt="Mascot" className="auth-mascot auth-mascot-sm" loading="eager" fetchPriority="high" />
 
         <div className="features-header auth-header">
-          <img src={Vector1} alt="" className="features-hook-img" style={{ width: '22px', marginBottom: '-4px' }} />
+          <img src={Vector1} alt="" className="features-hook-img" style={{ width: '22px', marginBottom: '-4px' }} loading="lazy" />
           <div className="section-tag" style={{ background: '#FFF1A1', padding: '8px 28px' }}>
             <h2 style={{ fontSize: '26px', margin: 0 }}>Join the Family</h2>
           </div>

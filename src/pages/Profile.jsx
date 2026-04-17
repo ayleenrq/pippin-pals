@@ -18,7 +18,7 @@ const Profile = () => {
     return (
       <div className="auth-page">
         <div className="auth-card">
-          <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '10px' }} />
+          <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '10px' }} loading="lazy" />
           <div className="section-tag" style={{ background: '#FFF1A1', padding: '10px 32px', marginBottom: '32px' }}>
             <h2 style={{ fontSize: '26px', margin: 0 }}>My Pippin Profile</h2>
           </div>
@@ -48,7 +48,7 @@ const Profile = () => {
   return (
     <div className="section profile-section">
       <div className="features-header profile-header">
-        <img src={Vector1} alt="" className="features-hook-img" />
+        <img src={Vector1} alt="" className="features-hook-img" loading="lazy" />
         <div className="section-tag" style={{ background: '#FFF1A1' }}>
           <h2>My Pippin Profile</h2>
         </div>
@@ -89,7 +89,7 @@ const Profile = () => {
             </p>
             <p className="reward-note">Keep collecting points with every cozy order.</p>
 
-            <img src={ClothingBag} alt="Bags" className="reward-img" />
+            <img src={ClothingBag} alt="Bags" className="reward-img" loading="lazy" />
           </div>
 
           <div className="profile-account-card">

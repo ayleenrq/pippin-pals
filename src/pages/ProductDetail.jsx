@@ -8,7 +8,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
 import Vector1 from '../assets/svg/decorative-hook.svg';
-import HeartIcon from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
+import HeartIcon from '../../Branding - Pippin & Pals_icon/heart-regular.svg';
 
 // Helper functions removed as color swatches are now text-based.
 
@@ -175,8 +175,7 @@ const ProductDetail = () => {
             <img
               src={displayImages[activeImgIndex]?.url || product.img}
               alt={displayImages[activeImgIndex]?.altText || product.name}
-              className="detail-main-img"
-            />
+              className="detail-main-img" loading="eager" fetchPriority="high" />
           </div>
 
           {/* Thumbnail strip */}
@@ -189,7 +188,7 @@ const ProductDetail = () => {
                   style={{ animationDelay: `${idx * 0.1}s` }}
                   onClick={() => setActiveImgIndex(idx)}
                 >
-                  <img src={img.url} alt={img.altText || `View ${idx + 1}`} />
+                  <img src={img.url} alt={img.altText || `View ${idx + 1}`} loading="lazy" />
                 </button>
               ))}
             </div>
@@ -203,7 +202,7 @@ const ProductDetail = () => {
         >
           {/* Title tag */}
           <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px', alignSelf: 'flex-start' }}>
-            <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '-4px', marginLeft: 0 }} />
+            <img src={Vector1} alt="" className="features-hook-img" style={{ marginBottom: '-4px', marginLeft: 0 }} loading="lazy" />
             <div className="section-tag" style={{ background: '#FFF1A1', padding: '8px 28px', margin: 0 }}>
               <h2 style={{ fontSize: '26px', margin: 0 }}>{product.name}</h2>
             </div>
@@ -320,7 +319,7 @@ const ProductDetail = () => {
               onClick={handleAddWishlist}
               title={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
             >
-              <img src={HeartIcon} alt="Wishlist" />
+              <img src={HeartIcon} alt="Wishlist" loading="lazy" />
             </button>
           </div>
 

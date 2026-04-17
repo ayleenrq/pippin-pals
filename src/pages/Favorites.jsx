@@ -8,7 +8,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Importing assets
 import Vector1 from '../assets/svg/decorative-hook.svg';
-import HeartFilled from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
+import HeartFilled from '../../Branding - Pippin & Pals_icon/heart-regular.svg';
 import RabbitSheep from '../../Branding - Pippin & Pals_img/rabbit-mascot.webp';
 
 const Favorites = () => {
@@ -57,7 +57,7 @@ const Favorites = () => {
         ref={headerRef}
         className={`features-header profile-header reveal-up${headerVisible ? ' is-visible' : ''}`}
       >
-        <img src={Vector1} alt="" className="features-hook-img" />
+        <img src={Vector1} alt="" className="features-hook-img" loading="lazy" />
         <div className="section-tag" style={{ background: '#FFC2C2' }}>
           <h2 style={{ color: '#E67C4F' }}>My Wishlist</h2>
         </div>
@@ -72,7 +72,7 @@ const Favorites = () => {
 
       {!isLoading && favoriteProducts.length === 0 && (
         <div className="favorites-empty">
-          <img src={RabbitSheep} alt="Empty" className="favorites-empty-img" />
+          <img src={RabbitSheep} alt="Empty" className="favorites-empty-img" loading="lazy" />
           <h3>Your wishlist is empty!</h3>
           <p>Tap the 💛 heart on products you love to save them here.</p>
           <Link to="/" className="btn btn-primary" style={{ marginTop: '24px' }}>
@@ -101,7 +101,7 @@ const Favorites = () => {
                 }}
               >
                 <div className="product-img-wrapper" style={{ border: '2px dashed #FFC2C2' }}>
-                  <img src={product.img} alt={product.name} />
+                  <img src={product.img} alt={product.name} loading="lazy" />
                   <button
                     className="add-to-cart-btn"
                     onClick={(e) => handleAddToCart(e, product)}
@@ -125,8 +125,7 @@ const Favorites = () => {
                         style={{
                           filter:
                             'invert(52%) sepia(87%) saturate(1514%) hue-rotate(328deg) brightness(98%) contrast(98%)',
-                        }}
-                      />
+                        }} loading="lazy" />
                     </div>
                   </div>
                   <div className="product-name">{product.name}</div>

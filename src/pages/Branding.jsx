@@ -2,23 +2,23 @@ import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // ── Icon Assets (from _icon - 2) ──
-import PrimaryLogo   from '../../Branding - Pippin & Pals_icon - 2/Primary Logo.svg';
-import LogoType      from '../../Branding - Pippin & Pals_icon - 2/Logotype.svg';
-import LogoType1     from '../../Branding - Pippin & Pals_icon - 2/Logotype-1.svg';
-import MascotLogo    from '../../Branding - Pippin & Pals_icon - 2/Mascot Logo.svg';
-import MascotLogo1   from '../../Branding - Pippin & Pals_icon - 2/Mascot Logo-1.svg';
-import Group25       from '../../Branding - Pippin & Pals_icon/Group 25.svg';
-import Group25_1     from '../../Branding - Pippin & Pals_icon - 2/Group 25-1.svg';
-import Group26       from '../../Branding - Pippin & Pals_icon/Group 26.svg';
-import Group26_1     from '../../Branding - Pippin & Pals_icon - 2/Group 26-1.svg';
-import Group27       from '../../Branding - Pippin & Pals_icon/Group 27.svg';
-import Group27_1     from '../../Branding - Pippin & Pals_icon - 2/Group 27-1.svg';
-import PIcon         from '../../Branding - Pippin & Pals_icon - 2/P.svg';
+import PrimaryLogo   from '../../Branding - Pippin & Pals_icon - 2/primary-logo.svg';
+import LogoType      from '../../Branding - Pippin & Pals_icon - 2/logotype.svg';
+import LogoType1     from '../../Branding - Pippin & Pals_icon - 2/logotype-1.svg';
+import MascotLogo    from '../../Branding - Pippin & Pals_icon - 2/mascot-logo.svg';
+import MascotLogo1   from '../../Branding - Pippin & Pals_icon - 2/mascot-logo-1.svg';
+import Group25       from '../../Branding - Pippin & Pals_icon/group-25.svg';
+import Group25_1     from '../../Branding - Pippin & Pals_icon - 2/group-25-1.svg';
+import Group26       from '../../Branding - Pippin & Pals_icon/group-26.svg';
+import Group26_1     from '../../Branding - Pippin & Pals_icon - 2/group-26-1.svg';
+import Group27       from '../../Branding - Pippin & Pals_icon/group-27.svg';
+import Group27_1     from '../../Branding - Pippin & Pals_icon - 2/group-27-1.svg';
+import PIcon         from '../../Branding - Pippin & Pals_icon - 2/p.svg';
 // ── Image Assets (from _img - 2) ──
 import BillboardMockup  from '../../Branding - Pippin & Pals_img - 2/billboard-mockup.webp';
 import ChildrenRabbit1  from '../../Branding - Pippin & Pals_img - 2/child-with-rabbit.webp';
 import ClothingBag      from '../../Branding - Pippin & Pals_img - 2/clothing-bag-mockup.webp';
-import StickerLogo      from '../../Branding - Pippin & Pals_img - 2/Sticker logo pippin 1.png';
+import StickerLogo      from '../../Branding - Pippin & Pals_img - 2/sticker-logo-pippin-1.png';
 import Rect13           from '../../Branding - Pippin & Pals_img - 2/brand-dress-girl.webp';
 import Rect14           from '../../Branding - Pippin & Pals_img - 2/brand-boy-outfit.webp';
 import Rect15           from '../../Branding - Pippin & Pals_img - 2/sticker-pattern-mockup.webp';
@@ -81,28 +81,28 @@ const Branding = () => {
 
       {/* ── HERO ── */}
       <section className="branding-hero">
-        <img src={ScenicView} alt="" className="branding-hero-bg" />
+        <img src={ScenicView} alt="" className="branding-hero-bg" loading="eager" fetchPriority="high" />
         <div className="branding-hero-overlay" />
         <div
           ref={heroRef}
           className={`branding-hero-inner reveal-up${heroVis ? ' is-visible' : ''}`}
         >
-          <img src={PrimaryLogo} alt="Pippin & Pals" className="branding-hero-logo" />
+          <img src={PrimaryLogo} alt="Pippin & Pals" className="branding-hero-logo" loading="eager" fetchPriority="high" />
           <h1 className="branding-hero-title">Brand Guidelines</h1>
           <p className="branding-hero-subtitle">
             The visual language of Pippin &amp; Pals — playful, warm, and built to hug.
           </p>
         </div>
         {/* Floating mascot icons */}
-        <img src={RabbitSheep1} alt="" className="branding-hero-mascot left" />
-        <img src={RabbitSheep2} alt="" className="branding-hero-mascot right" />
+        <img src={RabbitSheep1} alt="" className="branding-hero-mascot left" loading="eager" />
+        <img src={RabbitSheep2} alt="" className="branding-hero-mascot right" loading="eager" />
       </section>
 
       <section className="section testimonials-section" style={{ padding: 0 }}>
         <div className="testimonials-mascot-bar">
           <div className="mascot-track">
             {[Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27].map((g, i) => (
-              <img key={i} src={g} alt="" className="mascot-bar-icon" />
+              <img key={i} src={g} alt="" className="mascot-bar-icon" loading="lazy" />
             ))}
           </div>
         </div>
@@ -131,9 +131,9 @@ const Branding = () => {
             <div key={i} className="branding-story-logo-card">
               <div className="branding-story-logo-bg">
                 {[...Array(9)].map((_, j) => (
-                  <img key={j} src={PIcon} alt="" className={`branding-story-p-watermark p-pos-${j + 1}`} />
+                  <img key={j} src={PIcon} alt="" className={`branding-story-p-watermark p-pos-${j + 1}`} loading="lazy" />
                 ))}
-                <img src={logo.src} alt={logo.label} className="branding-story-logo-img" style={{ maxWidth: logo.maxW }} />
+                <img src={logo.src} alt={logo.label} className="branding-story-logo-img" style={{ maxWidth: logo.maxW }} loading="lazy" />
               </div>
             </div>
           ))}
@@ -158,7 +158,7 @@ const Branding = () => {
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className="branding-logo-phil-attr-icon" style={{ background: attr.bg }}>
-                  <img src={attr.icon} alt={attr.label} />
+                  <img src={attr.icon} alt={attr.label} loading="lazy" />
                 </div>
                 <span className="branding-logo-phil-attr-label">{attr.label}</span>
               </div>
@@ -202,13 +202,13 @@ const Branding = () => {
         <div className={`branding-logo-showcase reveal-scale${logoSecVis ? ' is-visible' : ''}`}>
           <div className="branding-logo-primary-card">
             <div className="branding-logo-bg-light">
-              <img src={PrimaryLogo} alt="Pippin & Pals Primary Logo" className="branding-logo-primary-img" />
+              <img src={PrimaryLogo} alt="Pippin & Pals Primary Logo" className="branding-logo-primary-img" loading="lazy" />
             </div>
             <span className="branding-logo-card-label">Primary Logo — Light Background</span>
           </div>
           <div className="branding-logo-primary-card dark">
             <div className="branding-logo-bg-dark">
-              <img src={PrimaryLogo} alt="Pippin & Pals Primary Logo" className="branding-logo-primary-img invert-logo" />
+              <img src={PrimaryLogo} alt="Pippin & Pals Primary Logo" className="branding-logo-primary-img invert-logo" loading="lazy" />
             </div>
             <span className="branding-logo-card-label light">Primary Logo — Dark Background</span>
           </div>
@@ -246,8 +246,7 @@ const Branding = () => {
                 <img
                   src={item.img}
                   alt={item.label}
-                  className={`branding-logo-var-img${item.invert ? ' invert-logo' : ''}`}
-                />
+                  className={`branding-logo-var-img${item.invert ? ' invert-logo' : ''}`} loading="lazy" />
               </div>
               <span className="branding-logo-var-label">{item.label}</span>
             </div>
@@ -360,7 +359,7 @@ const Branding = () => {
               className={`branding-mascot-card reveal-scale${mascotVis ? ' is-visible' : ''}`}
               style={{ animationDelay: mascotVis ? `${i * 0.1}s` : '0s' }}
             >
-              <img src={m.img} alt={m.label} className="branding-mascot-img" />
+              <img src={m.img} alt={m.label} className="branding-mascot-img" loading="lazy" />
               <span className="branding-mascot-label">{m.label}</span>
             </div>
           ))}
@@ -368,8 +367,8 @@ const Branding = () => {
 
         {/* Sticker */}
         <div className={`branding-sticker-row reveal-up${mascotVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.6s' }}>
-          <img src={StickerLogo} alt="Pippin & Pals Sticker" className="branding-sticker-img" />
-          <img src={Ellipse70}   alt="" className="branding-ellipse" />
+          <img src={StickerLogo} alt="Pippin & Pals Sticker" className="branding-sticker-img" loading="lazy" />
+          <img src={Ellipse70}   alt="" className="branding-ellipse" loading="lazy" />
           <div className="branding-sticker-caption">
             <h3>Sticker & Decorative Usage</h3>
             <p>The mascot sticker form is used on merchandise, packaging, tags, and collateral where a fun, tactile feel is needed.</p>
@@ -389,18 +388,18 @@ const Branding = () => {
 
         <div className="branding-context-bento">
           <div className={`branding-context-card tall reveal-left${usageVis ? ' is-visible' : ''}`}>
-            <img src={Rect13} alt="Brand in context" />
+            <img src={Rect13} alt="Brand in context" loading="lazy" />
           </div>
           <div className="branding-context-col">
             <div className={`branding-context-card reveal-up${usageVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
-              <img src={Rect14} alt="Brand in context" />
+              <img src={Rect14} alt="Brand in context" loading="lazy" />
             </div>
             <div className={`branding-context-card reveal-up${usageVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
-              <img src={Rect16} alt="Brand in context" />
+              <img src={Rect16} alt="Brand in context" loading="lazy" />
             </div>
           </div>
           <div className={`branding-context-card tall reveal-right${usageVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.15s' }}>
-            <img src={Rect15} alt="Brand in context" />
+            <img src={Rect15} alt="Brand in context" loading="lazy" />
           </div>
         </div>
       </section>
@@ -417,7 +416,7 @@ const Branding = () => {
 
         {/* Clothing bag hero */}
         <div className={`branding-mockup-hero reveal-scale${mockupVis ? ' is-visible' : ''}`}>
-          <img src={ClothingBag} alt="Pippin & Pals clothing bag" className="branding-mockup-hero-img" />
+          <img src={ClothingBag} alt="Pippin & Pals clothing bag" className="branding-mockup-hero-img" loading="lazy" />
         </div>
 
         {/* Stamp textures strip */}
@@ -428,7 +427,7 @@ const Branding = () => {
               className={`branding-stamp-card reveal-scale${mockupVis ? ' is-visible' : ''}`}
               style={{ animationDelay: mockupVis ? `${i * 0.08}s` : '0s' }}
             >
-              <img src={img} alt={`Stamp ${i}`} />
+              <img src={img} alt={`Stamp ${i}`} loading="lazy" />
             </div>
           ))}
         </div>
@@ -446,7 +445,7 @@ const Branding = () => {
               className={`branding-mockup-card reveal-up${mockupVis ? ' is-visible' : ''}`}
               style={{ animationDelay: mockupVis ? `${item.delay}s` : '0s' }}
             >
-              <img src={item.img} alt={`Mockup ${i}`} />
+              <img src={item.img} alt={`Mockup ${i}`} loading="lazy" />
             </div>
           ))}
         </div>
@@ -465,23 +464,23 @@ const Branding = () => {
         <div className="branding-gallery-masonry">
           <div className="branding-gallery-col">
             <div className={`branding-gallery-img-wrap reveal-left${galleryVis ? ' is-visible' : ''}`}>
-              <img src={Rect23} alt="" />
+              <img src={Rect23} alt="" loading="lazy" />
             </div>
             <div className={`branding-gallery-img-wrap reveal-left${galleryVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
-              <img src={Rect25} alt="" />
+              <img src={Rect25} alt="" loading="lazy" />
             </div>
           </div>
           <div className="branding-gallery-col">
             <div className={`branding-gallery-img-wrap tall reveal-up${galleryVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
-              <img src={TwoGirls} alt="Two little girls hugging" />
+              <img src={TwoGirls} alt="Two little girls hugging" loading="lazy" />
             </div>
           </div>
           <div className="branding-gallery-col">
             <div className={`branding-gallery-img-wrap reveal-right${galleryVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.05s' }}>
-              <img src={Rect24} alt="" />
+              <img src={Rect24} alt="" loading="lazy" />
             </div>
             <div className={`branding-gallery-img-wrap reveal-right${galleryVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.25s' }}>
-              <img src={Rect27} alt="" />
+              <img src={Rect27} alt="" loading="lazy" />
             </div>
           </div>
         </div>
@@ -491,17 +490,17 @@ const Branding = () => {
       <section className="branding-section bg-cream">
         <div className="branding-apparel-bento">
           <div className={`branding-apparel-card main reveal-scale${galleryVis ? ' is-visible' : ''}`}>
-            <img src={ChildrenRabbit1} alt="Children with rabbit" />
+            <img src={ChildrenRabbit1} alt="Children with rabbit" loading="lazy" />
           </div>
           <div className="branding-apparel-side">
             <div className={`branding-apparel-card reveal-up${galleryVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
-              <img src={Footwear1} alt="Apparel shorts" />
+              <img src={Footwear1} alt="Apparel shorts" loading="lazy" />
             </div>
             <div className={`branding-apparel-card reveal-up${galleryVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
-              <img src={Footwear1_1} alt="Apparel close up" />
+              <img src={Footwear1_1} alt="Apparel close up" loading="lazy" />
             </div>
             <div className={`branding-apparel-card reveal-up${galleryVis ? ' is-visible' : ''}`} style={{ animationDelay: '0.3s' }}>
-              <img src={Rect30} alt="Apparel detail" />
+              <img src={Rect30} alt="Apparel detail" loading="lazy" />
             </div>
           </div>
         </div>
@@ -517,7 +516,7 @@ const Branding = () => {
           </p>
         </div>
         <div className={`branding-billboard-wrap reveal-scale${billboardVis ? ' is-visible' : ''}`}>
-          <img src={BillboardMockup} alt="Pippin & Pals Billboard Mockup" className="branding-billboard-img" />
+          <img src={BillboardMockup} alt="Pippin & Pals Billboard Mockup" className="branding-billboard-img" loading="lazy" />
         </div>
       </section>
 
@@ -525,17 +524,17 @@ const Branding = () => {
       <section className="branding-section bg-orange no-pad-bottom" ref={assetsRef}>
         <div className={`branding-assets-cta reveal-scale${assetsVis ? ' is-visible' : ''}`}>
           <div style={{ position: 'relative', display: 'inline-block', height: '180px', marginBottom: '32px' }}>
-            <img src={PrimaryLogo} style={{ height: '180px', visibility: 'hidden' }} alt="" />
-            <img src={PrimaryLogo} style={{ position: 'absolute', top: 0, left: 0, height: '100%', clipPath: 'inset(0 0 32% 0)' }} alt="Pippin & Pals Mascot" />
-            <img src={PrimaryLogo} className="invert-logo" style={{ position: 'absolute', top: 0, left: 0, height: '100%', clipPath: 'inset(68% 0 0 0)' }} alt="Pippin & Pals Text" />
+            <img src={PrimaryLogo} style={{ height: '180px', visibility: 'hidden' }} alt="" loading="lazy" />
+            <img src={PrimaryLogo} style={{ position: 'absolute', top: 0, left: 0, height: '100%', clipPath: 'inset(0 0 32% 0)' }} alt="Pippin & Pals Mascot" loading="lazy" />
+            <img src={PrimaryLogo} className="invert-logo" style={{ position: 'absolute', top: 0, left: 0, height: '100%', clipPath: 'inset(68% 0 0 0)' }} alt="Pippin & Pals Text" loading="lazy" />
           </div>
           <h2 className="branding-assets-title">A Brand Built on Joy</h2>
           <p className="branding-assets-desc">
             Every colour, character, and curve in the Pippin &amp; Pals identity is designed to spark the warmth of childhood — for the little ones who wear it and the families who love them.
           </p>
           <div className="branding-assets-mascots">
-            <img src={RabbitSheep1} alt="" />
-            <img src={RabbitSheep2} alt="" />
+            <img src={RabbitSheep1} alt="" loading="lazy" />
+            <img src={RabbitSheep2} alt="" loading="lazy" />
           </div>
         </div>
       </section>

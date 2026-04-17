@@ -7,7 +7,7 @@ import { createShopifyCheckout } from '../services/shopifyService';
 import { toast } from 'sonner';
 
 // Importing assets
-import HeartIcon from '../../Branding - Pippin & Pals_icon/heart_regular.svg';
+import HeartIcon from '../../Branding - Pippin & Pals_icon/heart-regular.svg';
 import HeroBg from '../../Branding - Pippin & Pals_img/green-field-sheep-background.webp';
 import StoryBg from '../../Branding - Pippin & Pals_img/green-field-sheep-background.webp';
 import GirlsHugging from '../../Branding - Pippin & Pals_img/two-girls-hugging.webp';
@@ -24,9 +24,9 @@ import Vector1 from '../assets/svg/decorative-hook.svg';
 import Vector2 from '../assets/svg/decorative-child.svg';
 import Vector3 from '../assets/svg/decorative-leaf.svg';
 import Vector4 from '../assets/svg/decorative-rabbit.svg';
-import Group25 from '../../Branding - Pippin & Pals_icon/Group 25.svg';
-import Group26 from '../../Branding - Pippin & Pals_icon/Group 26.svg';
-import Group27 from '../../Branding - Pippin & Pals_icon/Group 27.svg';
+import Group25 from '../../Branding - Pippin & Pals_icon/group-25.svg';
+import Group26 from '../../Branding - Pippin & Pals_icon/group-26.svg';
+import Group27 from '../../Branding - Pippin & Pals_icon/group-27.svg';
 
 import { useSearchStore } from '../store/searchStore';
 import { getShopifyCollections } from '../services/shopifyService';
@@ -195,7 +195,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="section hero-section">
         {/* Full-width field/grass background */}
-        <img src={HeroBg} alt="Green Field" className="hero-bg" />
+        <img src={HeroBg} alt="Green Field" className="hero-bg" loading="eager" fetchPriority="high" />
 
         {/* Inner wrapper: title + text content */}
         <div className="hero-inner">
@@ -226,8 +226,7 @@ const Home = () => {
           ref={heroGirlsRef}
           src={GirlsHugging}
           alt="Little Girls Hugging"
-          className={`hero-girls reveal-hero-girls${heroGirlsVisible ? ' is-visible' : ''}`}
-        />
+          className={`hero-girls reveal-hero-girls${heroGirlsVisible ? ' is-visible' : ''}`} loading="eager" fetchPriority="high" />
 
         {/* Organic cotton stamp — bottom right wrapper for reveal */}
         <div
@@ -238,13 +237,12 @@ const Home = () => {
           <img
             src={StampGraphic}
             alt="100% Organic Cotton"
-            className="floating-stamp looping-spin"
-          />
+            className="floating-stamp looping-spin" loading="eager" />
         </div>
       </section>
 
       <section id="story" className="section story-section">
-        <img src={StoryBg} alt="Green Field" className="story-bg" />
+        <img src={StoryBg} alt="Green Field" className="story-bg" loading="lazy" />
         <div className="story-overlay"></div>
         
         <div className="story-content-wrapper">
@@ -258,8 +256,7 @@ const Home = () => {
             ref={storyImgRef}
             src={StickerLogo}
             alt="Logo Sticker"
-            className={`story-img reveal-story-img${storyImgVisible ? ' is-visible' : ''}`}
-          />
+            className={`story-img reveal-story-img${storyImgVisible ? ' is-visible' : ''}`} loading="lazy" />
           <div
             ref={storyCardRef}
             className={`story-card reveal-story-card${storyCardVisible ? ' is-visible' : ''}`}
@@ -276,8 +273,7 @@ const Home = () => {
             <img
               src={StampGraphicStory}
               alt="100% Organic Cotton"
-              className="story-stamp looping-spin"
-            />
+              className="story-stamp looping-spin" loading="lazy" />
           </div>
         </div>
       </section>
@@ -288,20 +284,20 @@ const Home = () => {
           ref={featHeaderRef}
           className={`features-header reveal-up${featHeaderVisible ? ' is-visible' : ''}`}
         >
-          <img src={Vector1} alt="" className="features-hook-img" />
+          <img src={Vector1} alt="" className="features-hook-img" loading="lazy" />
           <div className="features-header-content">
             <div className="header-mascots left">
-              <img src={Vector2} alt="" />
-              <img src={Vector3} alt="" />
-              <img src={Vector4} alt="" />
+              <img src={Vector2} alt="" loading="lazy" />
+              <img src={Vector3} alt="" loading="lazy" />
+              <img src={Vector4} alt="" loading="lazy" />
             </div>
             <div className="section-tag">
               <h2>The Secret to a Perfect Hug</h2>
             </div>
             <div className="header-mascots right">
-              <img src={Vector4} alt="" />
-              <img src={Vector2} alt="" />
-              <img src={Vector3} alt="" />
+              <img src={Vector4} alt="" loading="lazy" />
+              <img src={Vector2} alt="" loading="lazy" />
+              <img src={Vector3} alt="" loading="lazy" />
             </div>
           </div>
         </div>
@@ -365,7 +361,7 @@ const Home = () => {
           ref={prodHeaderRef}
           className={`features-header reveal-up${prodHeaderVisible ? ' is-visible' : ''}`}
         >
-          <img src={Vector1} alt="" className="features-hook-img" />
+          <img src={Vector1} alt="" className="features-hook-img" loading="lazy" />
           <div className="section-tag">
             <h2>Meet Your New Favorite Pals</h2>
           </div>
@@ -430,7 +426,7 @@ const Home = () => {
               }}
             >
               <div className="product-img-wrapper">
-                <img src={product.img} alt={product.name} />
+                <img src={product.img} alt={product.name} loading="lazy" />
               </div>
               <div className="product-info">
                 <div className="product-main-row">
@@ -440,7 +436,7 @@ const Home = () => {
                     onClick={(e) => handleWishlist(e, product)}
                     title={wishlist.has(product.routeId || product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
                   >
-                    <img src={HeartIcon} alt="Wishlist" />
+                    <img src={HeartIcon} alt="Wishlist" loading="lazy" />
                   </button>
                 </div>
                 <div className="product-name">{product.name}</div>
@@ -501,7 +497,7 @@ const Home = () => {
             ref={valImgRef}
             className={`values-main-image reveal-values-img${valImgVisible ? ' is-visible' : ''}`}
           >
-            <img src={ClothingBag} alt="Pippin &amp; Pals Bags" />
+            <img src={ClothingBag} alt="Pippin &amp; Pals Bags" loading="lazy" />
           </div>
         </div>
       </section>
@@ -511,7 +507,7 @@ const Home = () => {
         <div className="testimonials-mascot-bar">
           <div className="mascot-track">
             {[Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27, Group25, Group26, Group27].map((g, i) => (
-              <img key={i} src={g} alt="" className="mascot-bar-icon" />
+              <img key={i} src={g} alt="" className="mascot-bar-icon" loading="lazy" />
             ))}
           </div>
         </div>
@@ -520,7 +516,7 @@ const Home = () => {
           ref={testimHeaderRef}
           className={`features-header reveal-up${testimHeaderVisible ? ' is-visible' : ''}`}
         >
-          <img src={Vector1} alt="" className="features-hook-img" />
+          <img src={Vector1} alt="" className="features-hook-img" loading="lazy" />
           <div className="section-tag" style={{background: '#FFF1A1'}}>
             <h2 style={{color: '#E67C4F'}}>Loved by Little Pals &amp; Their Moms</h2>
           </div>
@@ -532,7 +528,7 @@ const Home = () => {
           style={{ transition: 'opacity 0.5s ease-in-out' }}
         >
           <div className="testimonial-image-box">
-            <img key={activeTestimonial} src={testimonials[activeTestimonial].img} alt="Happy Mom and Child" className="testimonial-img" style={{ animation: 'fadeInUpBounce 0.6s ease forwards' }} />
+            <img key={activeTestimonial} src={testimonials[activeTestimonial].img} alt="Happy Mom and Child" className="testimonial-img" style={{ animation: 'fadeInUpBounce 0.6s ease forwards' }} loading="lazy" />
           </div>
           <div className="testimonial-content-box" key={`text-${activeTestimonial}`} style={{ animation: 'fadeInUpBounce 0.6s ease forwards' }}>
             <div className="testimonial-quote-bubble">
@@ -567,7 +563,7 @@ const Home = () => {
           ref={faqHeaderRef}
           className={`features-header reveal-up${faqHeaderVisible ? ' is-visible' : ''}`}
         >
-          <img src={Vector1} alt="" className="features-hook-img" />
+          <img src={Vector1} alt="" className="features-hook-img" loading="lazy" />
           <div className="section-tag">
             <h2>Curious Minds Ask</h2>
           </div>
@@ -615,14 +611,12 @@ const Home = () => {
             ref={ctaMascotLRef}
             src={RabbitSheep}
             className={`cta-mascot mascot-left reveal-mascot-left${ctaMascotLVisible ? ' is-visible' : ''}`}
-            alt="Rabbit mascot"
-          />
+            alt="Rabbit mascot" loading="lazy" />
           <img
             ref={ctaMascotRRef}
             src={RabbitSheep2}
             className={`cta-mascot mascot-right reveal-mascot-right${ctaMascotRVisible ? ' is-visible' : ''}`}
-            alt="Sheep mascot"
-          />
+            alt="Sheep mascot" loading="lazy" />
         </div>
       </section>
     </>
