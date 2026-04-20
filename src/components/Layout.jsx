@@ -11,11 +11,11 @@ import UserIcon from '../assets/branding/icons/user-3-regular.svg';
 import HeartIcon from '../assets/branding/icons/heart-regular.svg';
 import FooterVectorLeft from '../assets/branding/illustrations/vector.svg';
 import FooterVectorRight from '../assets/branding/illustrations/vector-1.svg';
-import Social1 from '../assets/svg/social-x.svg';
-import Social2 from '../assets/svg/social-instagram.svg';
-import Social3 from '../assets/svg/social-facebook.svg';
-import Social4 from '../assets/svg/social-tiktok.svg';
-import Social5 from '../assets/svg/social-pinterest.svg';
+import Social1 from '../assets/branding/images/social/social-x.webp';
+import Social2 from '../assets/branding/images/social/social-instagram.webp';
+import Social3 from '../assets/branding/images/social/social-facebook.webp';
+import Social4 from '../assets/branding/images/social/social-tiktok.webp';
+import Social5 from '../assets/branding/images/social/social-pinterest.webp';
 import { useSearchStore } from '../store/searchStore';
 
 const Layout = () => {
